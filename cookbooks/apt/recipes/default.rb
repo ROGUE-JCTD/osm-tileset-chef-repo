@@ -1,11 +1,11 @@
 #
-# Cookbook Name:: apt2
+# Cookbook Name:: apt
 # Recipe:: default
 #
 # Copyright 2015, JAM
 #
 
-package "apt2"
+package "apt"
 
 file "/etc/motd.tail" do
   action :delete

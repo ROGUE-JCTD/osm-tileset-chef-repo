@@ -53,11 +53,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
            chef.json={'vagrant'=>true}
     chef.cookbooks_path = "cookbooks"
     chef.add_recipe "apt"
-    chef.add_recipe "apache2"
-    chef.add_recipe "apache2::mod_rewrite"
-    chef.add_recipe "apache2::mod_headers"
-    chef.add_recipe "apache2::mod_deflate"
-    chef.add_recipe "perl"
+#    chef.add_recipe "apache2"
+#    chef.add_recipe "apache2::mod_rewrite"
+#    chef.add_recipe "apache2::mod_headers"
+#    chef.add_recipe "apache2::mod_deflate"
+#    chef.add_recipe "perl"
     # You may also specify custom JSON attributes:
     chef.json = {
       :apache => {
