@@ -1,0 +1,9 @@
+{
+  "name": "tile_base",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "description": "Tile Server Initial OS Packages",
+  "run_list": [
+    "recipe[apt]"
+  ]
+}
