@@ -33,5 +33,5 @@ end
 
 execute "postgres" do
   action :run
-command "/usr/bin/apt-get install -y postgres"
+command "/usr/bin/apt-get install -y postgresql"
 end
