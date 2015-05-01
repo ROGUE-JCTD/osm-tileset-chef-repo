@@ -15,19 +15,17 @@ FileUtils.mkdir(host_cache_path) unless File.exist?(host_cache_path)
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
-  # Every Vagrant virtual environment requires a box to build off of.
+# Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "trusty64"
 # Install RVM, Ruby and Chef on the Virtual Machine.
   config.vm.provision :shell, :path => "scripts/install_rvm.sh",  :args => "stable"
   config.vm.provision :shell, :path => "scripts/install_ruby.sh", :args => "1.9.3"
 
   unless BERKSHELF
-    config.vm.provision :shell, :path => "scripts/tile_install.sh"
-#    config.vm.provision :shell, :path => "scripts/tile_install.sh" :args => "vagrant release-1.3"
+    config.vm.provision :shell, :path => "scripts/chef_install.sh" 
 #chef-server-ctl user-create USER_NAME osmdata PASSWORD (options)
   end
   config.vm.provision :shell, :inline => "gem install chef --version 11.10.4 --no-rdoc --no-ri --conservative"
-#  config.vm.provision :shell, :inline => "gem install chef --no-rdoc --no-ri --conservative"
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
@@ -43,8 +41,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.customize ["modifyvm", :id, "--cpus", "2"]
   end
 
-#  if BERKSHELF
-#    config.berkshelf.enabled = true
     config.vm.provision :chef_solo do |chef|
            chef.provisioning_path = "/opt/vagrant-chef"
            chef.cookbooks_path = "cookbooks"
@@ -65,5 +61,4 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       }
     }
   end
-#end
 end
