@@ -22,7 +22,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision :shell, :path => "scripts/install_ruby.sh", :args => "1.9.3"
 
   unless BERKSHELF
-    config.vm.provision :shell, :path => "scripts/chef_install.sh" 
+    config.vm.provision :shell, :path => "scripts/install_chef.sh" 
 #chef-server-ctl user-create USER_NAME osmdata PASSWORD (options)
   end
   config.vm.provision :shell, :inline => "gem install chef --version 11.10.4 --no-rdoc --no-ri --conservative"
