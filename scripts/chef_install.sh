@@ -2,22 +2,16 @@
 # exit if anything returns failure
 set -e
 
-# install rvm
-gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
-curl -L https://get.rvm.io | bash -s stable
+# install git
+apt-get update
 
-# activate the correct rvm environment
-source /usr/local/rvm/scripts/rvm
+# install curl
+apt-get install -y curl
 
-# get latest rvm
-rvm get stable
 
 # install ruby, my machine has this and things work
 rvm list known
-#rvm install ruby-2.0.0-p353  # tyler uses 193
-#rvm --default use 2.0.0-p353
 ruby -v # will show which version is being used
-
 
 # install git
 apt-get install -y git
@@ -53,11 +47,12 @@ fi
 
 #gem install bundler
 #su -c 'bundle install' - vagrant
-
+#
 #berks install
 #cd ..
 #echo "Berks complete..."
- Setup Chef Run folder
+
+# Setup Chef Run folder
 # if dna.json is in /opt/chef-run, move it out, then run the following, then put it back
 # Also remove the other dna files that ware aren't using for this setup.
 
@@ -92,4 +87,4 @@ fi
 
 # Change username referenced in provision.sh to correct user if the user on the box is not ‘rogue’ Note: manually view provision.sh and change the user to rogue
 
-chmod 755 *.sh
+#chmod 755 *.sh
