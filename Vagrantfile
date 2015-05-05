@@ -17,20 +17,20 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
 # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "trusty64"
+#  config.vm.box = "precise64"
 # Install RVM, Ruby and Chef on the Virtual Machine.
   config.vm.provision :shell, :path => "scripts/install_rvm.sh",  :args => "stable"
   config.vm.provision :shell, :path => "scripts/install_ruby.sh", :args => "1.9.3"
+#  config.vm.provision :shell, :path => "scripts/install_ruby.sh", :args => "2.2.1"
+  config.vm.provision :shell, :path => "scripts/install_chef.sh" 
 
-  unless BERKSHELF
-    config.vm.provision :shell, :path => "scripts/install_chef.sh" 
-#chef-server-ctl user-create USER_NAME osmdata PASSWORD (options)
-  end
+#  config.vm.provision :shell, :inline => "gem install chef --version 12.0.8 --no-rdoc --no-ri --conservative"
   config.vm.provision :shell, :inline => "gem install chef --version 11.10.4 --no-rdoc --no-ri --conservative"
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
   config.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
-
+#  config.vm.box_url = "http://files.vagrantup.com/precise64.box"
   config.vm.network :private_network, ip: "192.168.99.200"
 
   config.vm.provider :virtualbox do |vb|
@@ -41,7 +41,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.customize ["modifyvm", :id, "--cpus", "2"]
   end
 
-    config.vm.provision :chef_solo do |chef|
+  config.vm.provision :chef_solo do |chef|
            chef.provisioning_path = "/opt/vagrant-chef"
            chef.cookbooks_path = "cookbooks"
            chef.roles_path = "roles"
@@ -55,10 +55,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 #    chef.add_recipe "apache2::mod_deflate"
 #    chef.add_recipe "perl"
     # You may also specify custom JSON attributes:
-    chef.json = {
-      :apache => {
-        :listen_ports => [ "80", "8080" ]
-      }
-    }
+#    chef.json = {
+#      :apache => {
+#        :listen_ports => [ "80", "8080" ]
+#      }
+#    }
   end
 end

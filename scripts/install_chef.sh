@@ -2,15 +2,17 @@
 # exit if anything returns failure
 set -e
 
-# install git
+# update package list to latest
 apt-get update
 
 # install curl
 apt-get install -y curl
 
-
 # install ruby, my machine has this and things work
+source /usr/local/rvm/scripts/rvm
 rvm list known
+rvm install ruby-2.0.0-p353
+rvm --default use 2.0.0-p353
 ruby -v # will show which version is being used
 
 # install git
@@ -45,12 +47,12 @@ fi
 
 #git checkout ${GEOSHAPE_VERSION}
 
-#gem install bundler
-#su -c 'bundle install' - vagrant
+gem install bundler
+su -c 'bundle install' - vagrant
 #
-#berks install
-#cd ..
-#echo "Berks complete..."
+berks install
+cd ..
+echo "Berks complete..."
 
 # Setup Chef Run folder
 # if dna.json is in /opt/chef-run, move it out, then run the following, then put it back
