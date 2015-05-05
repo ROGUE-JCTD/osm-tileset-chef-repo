@@ -5,13 +5,10 @@ set -e
 # update package list to latest
 apt-get update
 
-# install curl
-apt-get install -y curl
-
 # install ruby, my machine has this and things work
 source /usr/local/rvm/scripts/rvm
 rvm list known
-rvm install ruby-2.0.0-p353
+#rvm install ruby-2.0.0-p353
 rvm --default use 2.0.0-p353
 ruby -v # will show which version is being used
 
@@ -23,6 +20,7 @@ apt-get install -y git
 # without a Vagrantfile.
 
 cd /opt
+opt/osm-tileset-chef-repo
 if [ -d osm-tileset-chef-repo ];
 then
   chown -R vagrant:vagrant osm-tileset-chef-repo
@@ -47,9 +45,12 @@ fi
 
 #git checkout ${GEOSHAPE_VERSION}
 
+echo "Bundle install......"
 gem install bundler
-su -c 'bundle install' - vagrant
+bundle install
+echo "Bundle complete....."
 #
+echo "Berks install......"
 berks install
 cd ..
 echo "Berks complete..."
