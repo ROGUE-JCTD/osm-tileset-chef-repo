@@ -1,0 +1,20 @@
+#!/bin/bash
+# exit if anything returns failure
+set -e
+
+sudo apt-get update
+sudo apt-get install -y curl
+#sudo apt-get purge -y ruby
+
+gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
+curl -L https://get.rvm.io | bash -s stable --ruby --autolibs=enable --auto-dotfiles
+
+ source /usr/local/rvm/scripts/rvm
+
+ rvm use --install $1 --default
+
+ shift
+
+ if (( $# ))
+ then gem install $@
+ fi
