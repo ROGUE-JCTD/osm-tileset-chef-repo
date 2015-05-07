@@ -94,4 +94,4 @@ curl -L https://www.chef.io/chef/install.sh | sudo bash
 
 # Change username referenced in provision.sh to correct user if the user on the box is not ‘rogue’ Note: manually view provision.sh and change the user to rogue
 
-chmod 755 *
+chmod -R 755 *
