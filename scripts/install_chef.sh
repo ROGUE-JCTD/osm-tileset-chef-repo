@@ -15,7 +15,7 @@ rvm install ruby-2.0.0-p353
 rvm --default use 2.0.0-p353
 ruby -v # will show which version is being used
 
-apt-get install -y postgresql-client-9.3 postgresql-9.3 postgresql-contrib-9.3 postgresql-server-dev-9.3 libpq-dev
+apt-get install -y postgresql-client-9.3 postgresql-9.3-postgis-2.1 postgresql-contrib-9.3 postgresql-server-dev-9.3 libpq-dev
 
 # Pull rogue-chef-repo if it doesn't already exist on the VM.
 # We do this so we can execute geoshape-install from a Vagrantfile and
