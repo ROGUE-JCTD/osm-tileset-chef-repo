@@ -1,9 +1,8 @@
 #
 # Cookbook Name:: users
-# Recipe:: sysadmins
+# Recipe:: default
 #
-# Copyright 2011, Eric G. Wolfe
-# Copyright 2009-2011, Chef Software, Inc.
+# Copyright 2009-2012, Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,8 +17,47 @@
 # limitations under the License.
 #
 
-# Searches data bag "users" for groups attribute "sysadmin".
-# Places returned users in Unix group "sysadmin" with GID 2300.
-users_manage "users" do
-  action [ :remove, :create ]
+# Empty default recipe for including LWRPs.
+
+user 'rogue' do
+  supports :manage_home => true
+  comment 'rogue admin'
+  uid '1200'
+  gid 'sudo'
+  shell '/bin/bash'
+  home '/home/rogue'
+  password '$1$gkl9sSWg$U9aIhckrcXwr08PLbx7NG1'
+  system false
+  action :create
+end
+user 'osmdata' do
+  supports :manage_home => true
+  comment 'rogue admin'
+  uid '120r10'
+  gid 'sudo'
+  shell '/bin/bash'
+  home '/home/osmdata'
+  password '$1$gkl9sSWg$U9aIhckrcXwr08PLbx7NG1'
+  system false
+  action :create
+end
+user 'osmrender' do
+  supports :manage_home => true
+  comment 'rogue admin'
+  uid '1202'
+  gid 'sudo'
+  shell '/bin/false'
+  home '/home/osmrender'
+  system false
+  action :create
+end
+user 'tilecache' do
+  supports :manage_home => true
+  comment 'rogue admin'
+  uid '1203'
+  gid 'sudo'
+  shell '/bin/false'
+  home '/home/tilecache'
+  system false
+  action :create
 end
