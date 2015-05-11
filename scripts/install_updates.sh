@@ -10,5 +10,5 @@ apt-get update
 
 # install dependencies
 apt-get install -y curl
-apt-get install -y ruby1.9.1-dev
+#apt-get install -y ruby1.9.1-dev
 apt-get install -y git

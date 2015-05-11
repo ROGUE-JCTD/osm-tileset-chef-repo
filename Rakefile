@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #
 # Rakefile for Chef Server Repository
 #
@@ -63,3 +64,16 @@ task :bundle_cookbook, :cookbook do |t, args|
 
   FileUtils.rm_rf temp_dir
 end
+=======
+require 'rspec/core/rake_task'
+RSpec::Core::RakeTask.new(:unit)
+
+# We cannot run Test Kitchen on Travis CI yet...
+namespace :travis do
+  desc 'Run tests on Travis'
+  task ci: ['unit']
+end
+
+# The default rake task should just run it all
+task default: ['travis:ci']
+>>>>>>> 70585d1eda03c2d6ef0244f33cf359bab21a1b63

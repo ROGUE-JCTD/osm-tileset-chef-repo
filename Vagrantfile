@@ -49,7 +49,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
            chef.data_bags_path = "data_bags"
            chef.json={'vagrant'=>true}
     chef.cookbooks_path = "cookbooks"
-#    chef.add_recipe "apt"
+#   chef.add_recipe "apt"
+   chef.add_recipe "users::user"
 #    chef.add_recipe "apache2"
 #    chef.add_recipe "apache2::mod_rewrite"
 #    chef.add_recipe "apache2::mod_headers"
