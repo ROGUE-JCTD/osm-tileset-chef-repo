@@ -1,3 +1,3 @@
 source 'https://api.berkshelf.com'
 
-chef-solo-search
+cookbook 'chef-solo-search', '~> 0.5.1'
