@@ -17,16 +17,12 @@
 # limitations under the License.
 #
 
-# Empty default recipe for including LWRPs.
+# Create system group accounts
 
-user 'rogue' do
-  supports :manage_home => true
-  comment 'rogue admin'
-  uid '1200'
-  gid 'sudo'
-  shell '/bin/bash'
-  home '/home/rogue'
-  password '$1$gkl9sSWg$U9aIhckrcXwr08PLbx7NG1'
-  system false
+group 'osmdata' do
+  action :create
+end
+
+group 'osmrender' do
   action :create
 end

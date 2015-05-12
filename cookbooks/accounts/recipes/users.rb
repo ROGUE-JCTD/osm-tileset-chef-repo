@@ -17,14 +17,8 @@
 # limitations under the License.
 #
 
-# Empty default recipe for including LWRPs.
+# Create system user accounts
 
-group 'osmdata' do
-  action :create
-end
-group 'osmrender' do
-  action :create
-end
 user 'rogue' do
   supports :manage_home => true
   comment 'rogue admin'
