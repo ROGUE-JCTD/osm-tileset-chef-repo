@@ -40,7 +40,7 @@ user 'osmdata' do
   supports :manage_home => true
   comment 'rogue admin'
   uid '1201'
-  gid 'osmdada'
+  gid 'osmdata'
   shell '/bin/bash'
   home '/home/osmdata'
   password '$1$gkl9sSWg$U9aIhckrcXwr08PLbx7NG1'
