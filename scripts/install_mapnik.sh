@@ -22,6 +22,6 @@ cd /opt
 chown -R vagrant:vagrant mapnik
 
 cd /opt/mapnik
-./configure PREFIX="$osmroot" PYTHON_PREFIX="$osmroot" OPTIMIZATION=3 INPUT_PLUGINS=all
+./configure PREFIX="/opt/mapnik" PYTHON_PREFIX="/opt/mapnik" OPTIMIZATION=3 INPUT_PLUGINS=all
 make
 make install
