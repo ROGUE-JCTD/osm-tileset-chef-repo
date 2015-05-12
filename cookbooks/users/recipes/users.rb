@@ -19,6 +19,12 @@
 
 # Empty default recipe for including LWRPs.
 
+group 'osmdata' do
+  action :create
+end
+group 'osmrender' do
+  action :create
+end
 user 'rogue' do
   supports :manage_home => true
   comment 'rogue admin'
@@ -34,7 +40,7 @@ user 'osmdata' do
   supports :manage_home => true
   comment 'rogue admin'
   uid '1201'
-  gid 'sudo'
+  gid 'osmdada'
   shell '/bin/bash'
   home '/home/osmdata'
   password '$1$gkl9sSWg$U9aIhckrcXwr08PLbx7NG1'
@@ -45,7 +51,7 @@ user 'osmrender' do
   supports :manage_home => true
   comment 'rogue admin'
   uid '1202'
-  gid 'sudo'
+  gid 'osmrender'
   shell '/bin/false'
   home '/home/osmrender'
   system false
