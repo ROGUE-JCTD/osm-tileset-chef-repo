@@ -8,6 +8,7 @@ apt-get update
 # install dependencies
 apt-get install -y curl
 apt-get install -y git
+apt-get install -y apache2-mpm-worker
 
 # install rvm
 gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
@@ -21,8 +22,6 @@ rvm list known
 rvm install ruby-2.0.0-p353
 rvm --default use 2.0.0-p353
 ruby -v # will show which version is being used
-
-apt-get install -y apache2-mpm-worker
 
 # Pull osm-rogue-repo if it doesn't already exist on the VM.
 
