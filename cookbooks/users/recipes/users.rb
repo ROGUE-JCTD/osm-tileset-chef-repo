@@ -33,7 +33,7 @@ end
 user 'osmdata' do
   supports :manage_home => true
   comment 'rogue admin'
-  uid '120r10'
+  uid '1201'
   gid 'sudo'
   shell '/bin/bash'
   home '/home/osmdata'
