@@ -11,8 +11,9 @@ then
   cd mapnik
 else
   git clone git://github.com/mapnik/mapnik.git
-  cd /opt/src/maknik
+  cd /opt/mapnik/src
   git pull && git checkout 2.3.x
 fi
 
-chmod -R 755 *
+cd /opt
+chown -R vagrant:vagrant mapnik
