@@ -2,7 +2,6 @@
 
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
-BERKSHELF = false
 
 # We'll mount the Chef::Config[:file_cache_path] so it persists between
 # Vagrant VMs
@@ -21,16 +20,17 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision :shell, :path => "scripts/install_rvm.sh",  :args => "stable"
   config.vm.provision :shell, :path => "scripts/install_ruby.sh", :args => "1.9.3"
 #  config.vm.provision :shell, :path => "scripts/install_ruby.sh", :args => "2.2.1"
-  config.vm.provision :shell, :path => "scripts/install_updates.sh",  :args => "stable"
-  config.vm.provision :shell, :path => "scripts/install_chef.sh" 
+  config.vm.provision :shell, :path => "scripts/install_osm_repo_base.sh"
+  config.vm.provision :shell, :path => "scripts/install_mapnik.sh"
 
-#  config.vm.provision :shell, :inline => "gem install chef --version 12.0.8 --no-rdoc --no-ri --conservative"
-#  config.vm.provision :shell, :inline => "gem install chef --version 11.10.4 --no-rdoc --no-ri --conservative"
-
-  # The url from where the 'config.vm.box' box will be fetched if it
-  # doesn't already exist on the user's system.
+# The url from where the 'config.vm.box' box will be fetched if it doesn't already exist on the user's system. Comment out i
+# the version you want.
+# trusty64
   config.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
+# precise64
 #  config.vm.box_url = "http://files.vagrantup.com/precise64.box"
+
+# configure the network
   config.vm.network :private_network, ip: "192.168.99.200"
 
   config.vm.provider :virtualbox do |vb|

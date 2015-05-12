@@ -2,6 +2,13 @@
 # exit if anything returns failure
 set -e
 
+# update package list
+apt-get update
+
+# install dependencies
+apt-get install -y curl
+apt-get install -y git
+
 # install rvm
 gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
 curl -L https://get.rvm.io | bash -s stable
@@ -19,9 +26,7 @@ apt-get install -y postgresql-client-9.3 postgresql-9.3-postgis-2.1 postgresql-c
 apt-get install -y apache2-mpm-worker
 apt-get install -y php5
 
-# Pull rogue-chef-repo if it doesn't already exist on the VM.
-# We do this so we can execute geoshape-install from a Vagrantfile and
-# without a Vagrantfile.
+# Pull osm-rogue-repo if it doesn't already exist on the VM.
 
 cd /opt
 if [ -d osm-tileset-chef-repo ];
@@ -33,20 +38,6 @@ else
   chown -R vagrant:vagrant osm-tileset-chef-repo
   cd osm-tileset-chef-repo
 fi
-#
-#if [ -z "$GEOSHAPE_VERSION" ];
-#then
-#  # discover the latest release tag
-#  RELEASE_TAGS=(`git tag`)
-#  echo 'release tags: '
-#  echo "${RELEASE_TAGS[@]}"
-#  # sort the list of branches that had '.' in them such that index 0 is the largest one
-#  RELEASE_TAGS_SORTED=($(printf '%s\n' "${RELEASE_TAGS[@]}"|sort -r))
-#  GEOSHAPE_VERSION=${RELEASE_TAGS_SORTED[0]}
-#  echo '----[ discovered latest release version: '${GEOSHAPE_VERSION}
-#fi
-
-#git checkout ${GEOSHAPE_VERSION}
 
 echo "Bundle install......"
 gem install bundler
@@ -60,6 +51,8 @@ cd ..
 echo "Berks complete..."
 
 curl -L https://www.chef.io/chef/install.sh | sudo bash
+
+chmod -R 755 *
 
 # Setup Chef Run folder
 # if dna.json is in /opt/chef-run, move it out, then run the following, then put it back
@@ -95,5 +88,3 @@ curl -L https://www.chef.io/chef/install.sh | sudo bash
 #fi
 
 # Change username referenced in provision.sh to correct user if the user on the box is not ‘rogue’ Note: manually view provision.sh and change the user to rogue
-
-chmod -R 755 *
