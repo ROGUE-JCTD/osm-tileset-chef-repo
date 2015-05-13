@@ -2,7 +2,7 @@
 # exit if anything returns failure
 set -e
 
-apt-get update
+#apt-get update
 
 # install required mapnik packages
 #apt-get install -y add-apt-repository python-software-properties libmapnik libmapnik-dev mapnik-utils python-mapnik

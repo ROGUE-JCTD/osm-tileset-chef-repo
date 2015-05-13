@@ -8,7 +8,7 @@
 execute "configure" do
   cwd '/opt/mapnik'
   action :run
-  command "python scons/scons.py configure PREFIX="/opt/mapnik" PYTHON_PREFIX="/opt/mapnik" OPTIMIZATION=3 INPUT_PLUGINS=all"
+  command "python scons/scons.py configure PREFIX=\"/opt/mapnik\" PYTHON_PREFIX=\"/opt/mapnik\" OPTIMIZATION=3 INPUT_PLUGINS=all"
 end
 
 execute "make" do
