@@ -24,9 +24,9 @@ fi
 cd /opt
 chown -R vagrant:vagrant mapnik
 
-cd /opt/mapnik
+#cd /opt/mapnik
 #./configure PREFIX="/opt/mapnik" PYTHON_PREFIX="/opt/mapnik" OPTIMIZATION=3 INPUT_PLUGINS=all
-python scons/scons.py configure PREFIX="/opt/mapnik" PYTHON_PREFIX="/opt/mapnik" OPTIMIZATION=3 INPUT_PLUGINS=all
-make
-make install
-ldconfig
+#python scons/scons.py configure PREFIX="/opt/mapnik" PYTHON_PREFIX="/opt/mapnik" OPTIMIZATION=3 INPUT_PLUGINS=all
+#make
+#make install
+#ldconfig
