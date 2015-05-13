@@ -13,7 +13,7 @@ apt-get install -y libicu-dev python-dev libxml2 libxml2-dev libfreetype6 libfre
 
 # install mapnik packages
 apt-get install -y python-software-properties libmapnik-dev mapnik-utils python-mapnik
-apt-get install -y subversion git-core tar unzip wget bzip2 build-essential aptitude autoconf automake libtool make g++ libboost-all-dev libboost-dev libboost-system-dev libboost-filesystem-dev libboost-thread-dev libxml2-dev libgeos-dev libgeos++-dev libpq-dev libbz2-dev proj libproj-dev protobuf-c-compiler libprotobuf-c0-dev lua5.2 liblua5.2-dev libboost-all-dev munin-node munin libfreetype6-dev libpng12-dev libtiff4-dev libicu-dev libgdal-dev libcairo-dev libcairomm-1.0-dev libagg-dev liblua5.2-dev ttf-unifont lua5.1 liblua5.1-dev node-carto
+apt-get install -y subversion git-core tar unzip wget bzip2 build-essential aptitude autoconf automake libtool make g++ libboost-all-dev libboost-dev libboost-system-dev libboost-filesystem-dev libboost-thread-dev libxml2-dev libgeos-dev libgeos++-dev libpq-dev libbz2-dev libproj-dev protobuf-c-compiler libprotobuf-c0-dev lua5.2 liblua5.2-dev libboost-all-dev munin-node munin libfreetype6-dev libpng12-dev libtiff4-dev libicu-dev libgdal-dev libcairo-dev libcairomm-1.0-dev libagg-dev liblua5.2-dev ttf-unifont lua5.1 liblua5.1-dev node-carto
 
 # Install apache packages
 apt-get install -y apache2 apache2-dev apache2-mpm-worker
