@@ -4,7 +4,7 @@ set -e
 
 # Update the package list
 apt-get update
-apt-get install --fix missing
+apt-get -f install
 
 # install Postgresql packages.  These include packages necessary for mapnik.
 
