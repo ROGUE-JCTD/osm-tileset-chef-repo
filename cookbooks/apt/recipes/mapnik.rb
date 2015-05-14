@@ -3,25 +3,12 @@
 # Recipe:: mapnik
 #
 # Copyright 2015, JAM
-#
+# For some reason the mapnik in 12.04 is named mapnik2.
+# Only configuration is a symbolic link between mapnik and mapnik 2 
+# to resolve the confusions. 
 
-execute "configure" do
-  cwd '/opt/mapnik'
-  action :run
-  command "python scons/scons.py configure PREFIX=\"/opt/mapnik\" PYTHON_PREFIX=\"/opt/mapnik\" OPTIMIZATION=3 INPUT_PLUGINS=all"
-end
-
-execute "make" do
-  cwd '/opt/mapnik'
-  action :run
-  command "make"
-end
-
-execute "make install" do
-  cwd '/opt/mapnik'
+execute "ln -s mapnik2 mapnik" do
+  cwd '/usr/lib/python2.7/dist-packages'
   action :run
 end
 
-execute "ldconfig" do
-  action :run
-end
