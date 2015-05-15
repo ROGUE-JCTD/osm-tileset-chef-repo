@@ -6,7 +6,7 @@
 #
 
 #package "postgis"
-#include_recipe 'database::postgresql'
+include_recipe 'database::postgresql'
 #package 'postgresql'
 #package 'database::postgresql'
 #include_recipe 'postgresql::server'
