@@ -7,7 +7,10 @@
 
 #package "postgis"
 #include_recipe 'database::postgresql'
-package 'database::postgresql'
+package 'postgresql'
+#package 'database::postgresql'
+include_recipe 'postgresql::server'
+include_recipe 'database::postgresql'
 
 postgresql_database 'osm' do
   connection(
