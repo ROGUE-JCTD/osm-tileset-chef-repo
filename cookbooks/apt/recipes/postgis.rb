@@ -6,7 +6,7 @@
 #
 
 package "postgis"
-include_recipe "postgresql_database"
+include_recipe "database"
 
 postgresql_database 'osm' do
   connection(

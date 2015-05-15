@@ -50,7 +50,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe "accounts::groups"
     chef.add_recipe "accounts::users"
     chef.add_recipe "apt::mapnik"
-#    chef.add_recipe "apt::postgis"
+    chef.add_recipe "apt::postgis"
 #    chef.add_recipe "apache2"
 #    chef.add_recipe "apache2::mod_rewrite"
 #    chef.add_recipe "apache2::mod_headers"
