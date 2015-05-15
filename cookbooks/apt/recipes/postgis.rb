@@ -5,8 +5,8 @@
 # Copyright 2015, JAM
 #
 
-package "postgis"
-include_recipe "database"
+#package "postgis"
+include_recipe 'database::postgresql'
 
 postgresql_database 'osm' do
   connection(
