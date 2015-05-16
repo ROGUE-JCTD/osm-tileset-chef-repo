@@ -3,7 +3,6 @@ description      'Installs/Configures the ROGUE JCTD project'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          '1.2'
 
-depends 'apt', '~> 2.6.1'
 depends 'build-essential', '~> 2.2.3'
 depends 'git', '~> 4.2.2'
 depends 'python', '~> 1.4.r6
@@ -16,6 +15,6 @@ depends 'rabbitmq', '~> 4.0.0'
 depends 'openssl', '~> 4.00.'
 depends 'apt', '~> 2.7.0'
 depends 'apache2', '~> 3.0.1'
-depends 'postgresql', '~> 3.4.18'
-depends 'postgis', '~> 0.3.0'
-depends 'database', '~> 4.0.5'
+#depends 'postgresql', '~> 3.4.18'
+#depends 'postgis', '~> 0.3.0'
+#depends 'database', '~> 4.0.5'
