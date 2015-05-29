@@ -24,7 +24,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision :shell, :path => "scripts/stage_osm_repo.sh"
 #  config.vm.provision :shell, :path => "scripts/stage_mapnik_repo.sh"
 
-# The url from where the 'config.vm.box' box will be fetched if it doesn't already exist on the user's system. Comment out i
+# The url from where the 'config.vm.box' box will be fetched if it doesn't already exist on the user's system. Comment out 
 # the version you want.
 # trusty64
 #  config.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
@@ -50,7 +50,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe "accounts::groups"
     chef.add_recipe "accounts::users"
     chef.add_recipe "apt::mapnik"
-    chef.add_role "db_main"
+    chef.add_recipe "postgres::db"
+#    chef.add_role "db_main"
 #    chef.add_recipe "database::postgresql"
 #    chef.add_recipe "apache2"
 #    chef.add_recipe "apache2::mod_rewrite"
