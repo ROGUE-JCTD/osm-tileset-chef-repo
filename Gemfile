@@ -15,5 +15,6 @@ gem "pg"
 gem "sass-rails", "~> 5.0"
  gem 'rake'
 gem 'minitest', '~> 4.7'
+gem 'robocop'
 gem 'foodcritic'
 

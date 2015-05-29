@@ -33,11 +33,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
 # configure the network
   config.vm.network :private_network, ip: "192.168.99.200"
-
   config.vm.provider :virtualbox do |vb|
     # Don't boot with headless mode
     vb.gui = true
-    # Use VBoxManage to customize the VM. For example to change memory:
+    vb.name = 'geoshape_mapnik'
+    # Use VBoxManage to customize the VM memory and CPUs.
     vb.customize ["modifyvm", :id, "--memory", "8192"]
     vb.customize ["modifyvm", :id, "--cpus", "2"]
   end
@@ -50,8 +50,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe "accounts::groups"
     chef.add_recipe "accounts::users"
     chef.add_recipe "apt::mapnik"
-#    chef.add_recipe "apt::postgresql"
-    chef.add_recipe "postgresql::server"
+    chef.add_role "db_main"
 #    chef.add_recipe "database::postgresql"
 #    chef.add_recipe "apache2"
 #    chef.add_recipe "apache2::mod_rewrite"
