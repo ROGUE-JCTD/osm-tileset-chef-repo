@@ -1,11 +1,11 @@
 package "postgresql"
 package "postgresql-contrib"
 
-{
-"user": {
-   "name": "postgres"
-   }
-}
+#{
+#"user": {
+#   "name": "postgres"
+#   }
+#}
 
 execute "create new postgresql database" do
    user "postgres"
