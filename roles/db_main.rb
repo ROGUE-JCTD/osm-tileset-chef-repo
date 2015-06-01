@@ -21,5 +21,6 @@ default_attributes(
 
 run_list(
  "recipe[postgresql::packages]",
- "recipe[postgresql::db]"
+ "recipe[postgresql::db]",
+ "recipe[postgresql::postgis]"
 )
