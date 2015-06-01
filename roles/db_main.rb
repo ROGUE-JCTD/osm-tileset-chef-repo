@@ -7,7 +7,7 @@ default_attributes(
     :settings => {
       :defaults => {
         :wal_level => "hot_standby",
-        :archive_mode => "on",
+        :archive_mode => "off",
         :archive_command => "/bin/cp %p /store/postgresql/archive/%f",
         :max_wal_senders => "2",
         :late_authentication_rules => [
@@ -19,7 +19,7 @@ default_attributes(
   }
 )
 
-run_list[
+run_list(
  "recipe[postgresql::packages]",
  "recipe[postgresql::db]"
-]
+)
