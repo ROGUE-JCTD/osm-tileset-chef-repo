@@ -1,6 +1,18 @@
 # install Postgresql packages.  These include packages necessary for postgis and mapnik.
 
-execute "apt-add-repository -y ppa:ubuntugis/ppa" do
+#execute "apt-add-repository -y ppa:ubuntugis/ppa" do
+#  user "root"
+#end
+
+execute "apt-add-repository -y ppa:sharpie/for-science" do
+  user "root"
+end
+
+execute "apt-add-repository -y ppa:sharpie/postgis-stable" do
+  user "root"
+end
+
+execute "apt-add-repository -y ppa:ubuntugis/ubuntugis-unstable" do
   user "root"
 end
 
@@ -12,6 +24,6 @@ end
   package p
 end
 
-["postgis", "postgresql-9.1-postgis"].each do |p|
+["postgis", "postgresql-9.1-postgis2"].each do |p|
   package p
 end
