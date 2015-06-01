@@ -1,6 +1,6 @@
 # install Postgresql packages.  These include packages necessary for postgis and mapnik.
 
-execute "add-apt-repository -y ppa:ubuntugis/ppa" do
+execute "apt-add-repository -y ppa:ubuntugis/ppa" do
   user "root"
 end
 
