@@ -28,19 +28,19 @@ else
   cd osm-tileset-chef-repo
 fi
 
-echo "Bundle install......"
-gem install bundler
-bundle install
-echo "Bundle complete....."
+#echo "Bundle install......"
+#gem install bundler
+#bundle install
+#echo "Bundle complete....."
 #
-echo "Berks install......"
+#echo "Berks install......"
 #gem install berkshelf -v 3.2.3
-berks install
+#berks install
+#cd ..
+#echo "Berks complete..."
+
 cd ..
-echo "Berks complete..."
-
 curl -L https://www.chef.io/chef/install.sh | sudo bash
-
 chmod -R 755 *
 
 # Setup Chef Run folder
