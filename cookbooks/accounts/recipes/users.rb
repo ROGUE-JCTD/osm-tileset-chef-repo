@@ -2,8 +2,6 @@
 # Cookbook Name:: users
 # Recipe:: default
 #
-# Copyright 2009-2012, Chef Software, Inc.
-#
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -17,22 +15,11 @@
 # limitations under the License.
 #
 
-# Create system user accounts
+# Create tile server user accounts
 
-user 'rogue' do
-  supports :manage_home => true
-  comment 'rogue admin'
-  uid '1200'
-  gid 'sudo'
-  shell '/bin/bash'
-  home '/home/rogue'
-  password '$1$gkl9sSWg$U9aIhckrcXwr08PLbx7NG1'
-  system false
-  action :create
-end
 user 'osmdata' do
   supports :manage_home => true
-  comment 'rogue admin'
+  comment 'osm data'
   uid '1201'
   gid 'osmdata'
   shell '/bin/bash'
@@ -43,7 +30,7 @@ user 'osmdata' do
 end
 user 'osmrender' do
   supports :manage_home => true
-  comment 'rogue admin'
+  comment 'osm render'
   uid '1202'
   gid 'osmrender'
   shell '/bin/false'
@@ -53,7 +40,7 @@ user 'osmrender' do
 end
 user 'tilecache' do
   supports :manage_home => true
-  comment 'rogue admin'
+  comment 'tile cache'
   uid '1203'
   gid 'sudo'
   shell '/bin/false'

@@ -2,14 +2,6 @@
 # exit if anything returns failure
 set -e
 
-# update package list
-#apt-get update
-
-# install dependencies
-#apt-get install -y curl
-#apt-get install -y git
-#apt-get install -y apache2-mpm-worker
-
 # install rvm
 gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
 curl -L https://get.rvm.io | bash -s stable
