@@ -7,8 +7,6 @@
 # Only configuration is a symbolic link between mapnik and mapnik 2 
 # to resolve the confusions. 
 
-execute "ln -s mapnik2 mapnik" do
-  cwd '/usr/lib/python2.7/dist-packages'
-  action :run
+["libmapnik2.2", "mapnik-utils"].each do |p|
+  package p
 end
-

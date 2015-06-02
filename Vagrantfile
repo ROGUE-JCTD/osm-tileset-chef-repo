@@ -22,7 +22,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision :shell, :path => "scripts/install_ruby.sh", :args => "1.9.3"
 #  config.vm.provision :shell, :path => "scripts/install_ruby.sh", :args => "2.2.1"
   config.vm.provision :shell, :path => "scripts/stage_osm_repo.sh"
-#  config.vm.provision :shell, :path => "scripts/stage_mapnik_repo.sh"
 
 # The url from where the 'config.vm.box' box will be fetched if it doesn't already exist on the user's system. Comment out 
 # the version you want.

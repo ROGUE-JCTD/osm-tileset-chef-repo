@@ -35,3 +35,9 @@ execute "postgres" do
   action :run
 command "/usr/bin/apt-get install -y postgresql"
 end
+
+python-software-properties
+
+["python-software-properties"].each do |p|
+  package p
+end
