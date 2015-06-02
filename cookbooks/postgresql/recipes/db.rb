@@ -3,7 +3,7 @@ package "postgresql-contrib"
 
 execute "create role" do
    user "postgres"
-   command "psql -c \"create role #{node['db_admin_name']} with createdb inherit;\""
+   command "psql -c \"create role #{node['db_admin_name']} with createdb inherit login;\""
 end
 
 execute "create mapnik database" do
