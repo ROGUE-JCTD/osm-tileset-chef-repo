@@ -5,3 +5,5 @@ apt-get install -y libboost-all-dev subversion git-core tar unzip wget bzip2 bui
 apt-get install postgresql postgresql-contrib postgis postgresql-9.3-postgis-2.1
 
 apt-get install libmapnik2.2 mapnik-utils
+
+https://switch2osm.org/serving-tiles/manually-building-a-tile-server-14-04/
