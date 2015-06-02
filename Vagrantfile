@@ -48,8 +48,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.json={'vagrant'=>true}
     chef.add_recipe "accounts::groups"
     chef.add_recipe "accounts::users"
-    chef.add_recipe "apt::default"
-    chef.add_recipe "apt::mapnik"
+    chef.add_recipe "apt"
     chef.add_role "db_main"
 #    chef.add_recipe "apache2"
 #    chef.add_recipe "apache2::mod_rewrite"
