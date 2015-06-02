@@ -8,5 +8,5 @@ end
 
 execute "create mapnik database" do
    user "postgres"
-   command "psql -c \"create database #{node['db_name']} owner #{node['db_name_admin']};\""
+   command "psql -c \"create database #{node['db_name']} owner #{node['db_admin_name']};\""
 end
