@@ -31,7 +31,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 #  config.vm.box_url = "http://files.vagrantup.com/precise64.box"
 
 # configure the network
-  config.vm.network :private_network, ip: "192.168.99.200"
+  config.vm.network :private_network, ip: "192.168.10.101"
   config.vm.provider :virtualbox do |vb|
     # Don't boot with headless mode
     vb.gui = true
