@@ -4,7 +4,7 @@ execute "apt-get update" do
   user "root"
 end
 
-["libc6", "libgdal-dev", libgeos-c1", "libproj0", "libxml2"].each do |p|
+["libc6", "libgdal-dev", "libgeos-c1", "libproj0", "libxml2"].each do |p|
   package p
 end
 
