@@ -18,10 +18,11 @@ apt-get install -y subversion git-core tar unzip wget bzip2 build-essential apti
 
 #apt-get install -y libboost-filesystem1.48-dev libboost-program-options1.48-dev libboost-python1.48-dev libboost-regex1.48-dev libboost-system1.48-dev libboost-thread1.48-dev
 apt-get install -y python-software-properties
-add-apt-repository ppa:mapnik/boost
+
+#add-apt-repository ppa:mapnik/boost
 apt-get update
-apt-get install -y libmapnik-dev mapnik-utils python-mapnik2
-apt-get install -y libboost-filesystem-dev libboost-program-options-dev libboost-python-dev libboost-regex-dev libboost-system-dev libboost-thread-dev
+#apt-get install -y libmapnik-dev mapnik-utils python-mapnik2
+#apt-get install -y libboost-filesystem-dev libboost-program-options-dev libboost-python-dev libboost-regex-dev libboost-system-dev libboost-thread-dev
 #apt-get install -y libboost-graph-parallel-dev libboost-mpi-dev libboost-mpi-python-dev libboost-filesystem-dev libboost-program-options-dev libboost-python-dev libboost-regex-dev libboost-system-dev libboost-thread-dev libboost-all-dev
 
 # Install osm2pgsql
