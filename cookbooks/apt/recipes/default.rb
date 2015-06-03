@@ -28,7 +28,14 @@ end
   package p
 end
 
-#execute "apache" do
-#  action :run
-#command "/usr/bin/apt-get install -y apache2"
-#end
+["osm2pgsql"].each do |p|
+  package p
+end
+
+["apache2", "apache2-mpm-worker"].each do |p|
+  package p
+end
+
+["munin-node", "munin", "munin-plugins-extra", "libdbd-pg-perl", "sysstat", "iotop", "ptop"].each do |p|
+  package p
+end
