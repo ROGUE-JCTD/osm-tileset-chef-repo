@@ -39,3 +39,8 @@ end
 ["munin-node", "munin", "munin-plugins-extra", "libdbd-pg-perl", "sysstat", "iotop", "ptop"].each do |p|
   package p
 end
+
+# Fontsheets required by osm stylesheets
+["ttf-dejavu", "fonts-droid", "ttf-unifont"].each do |p|
+  package p
+end
