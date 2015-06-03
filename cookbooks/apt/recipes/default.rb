@@ -16,19 +16,19 @@ execute "apt-update" do
 command "/usr/bin/apt-get update"
 end
 
-["python-software-properties"].each do |p|
+["python-software-properties", "git", "unzip"].each do |p|
   package p
 end
 
-["postgresql", "postgresql-contrib", "postgis", "postgresql-contrib",  "postgresql-9.3-postgis-2.1", "libpq-dev", "php5", "libsqlite3-dev"].each do |p|
+["postgresql", "postgresql-contrib", "postgis", "postgresql-contrib",  "postgresql-9.3-postgis-2.1", "proj-bin", "libpq-dev", "php5", "libsqlite3-dev"].each do |p|
   package p
 end
 
-["libmapnik2.2", "mapnik-utils"].each do |p|
+["libmapnik2.2", "mapnik-utils", "python-mapnika, "libmapnik-dev""].each do |p|
   package p
 end
 
-["osm2pgsql"].each do |p|
+["osm2pgsql", "libprotobuf-c0-dev", "protobuf-c-compiler", "lua5.2", "liblua5.2-dev"].each do |p|
   package p
 end
 
