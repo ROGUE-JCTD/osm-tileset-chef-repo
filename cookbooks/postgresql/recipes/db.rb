@@ -21,12 +21,6 @@ execute "create extension" do
    command "psql -d #{node['db_name']} -c \"create extension adminpack; create extension hstore;\""
 end
 
-execute "create extension" do
-   user "postgres"
-   command "psql -d #{node['db_name']} -c \"create extension hstore;\""
-end
-
-
 execute "grant connect" do
    user "postgres"
    command "psql -d #{node['db_name']} -c \"GRANT CONNECT ON DATABASE #{node['db_name']} to #{node['db_render_name']};\""
