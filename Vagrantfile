@@ -46,21 +46,20 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.roles_path = "roles"
     chef.cookbooks_path = "cookbooks"
     chef.json={'vagrant'=>true}
-#    chef.add_recipe "accounts::groups"
-#    chef.add_recipe "accounts::users"
-#    chef.add_recipe "apt"
-#    chef.add_role "db_main"
-    chef.add_role "countries"
+    chef.add_recipe "accounts::groups"
+    chef.add_recipe "accounts::users"
+    chef.add_recipe "apt"
+    chef.add_role "db_main"
 #    chef.add_recipe "apache2"
 #    chef.add_recipe "apache2::mod_rewrite"
 #    chef.add_recipe "apache2::mod_headers"
 #    chef.add_recipe "apache2::mod_deflate"
 #    chef.add_recipe "perl"
-    # You may also specify custom JSON attributes:
-#    chef.json = {
-#      :apache => {
-#        :listen_ports => [ "80", "8080" ]
-#      }
-#    }
+    # JSON Apache2 attributes:
+    chef.json = {
+      :apache => {
+        :listen_ports => [ "80", "8080" ]
+      }
+    }
   end
 end
