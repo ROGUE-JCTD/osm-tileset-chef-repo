@@ -30,3 +30,9 @@ execute "grant select" do
    user "postgres"
    command "psql -d #{node['db_name']} -c \"GRANT SELECT ON ALL TABLES IN SCHEMA public to #{node['db_render_name']};\""
 end
+
+execute "munin-node-configure --sh | sudo sh"
+end
+
+execute "service munin-node restart"
+end
