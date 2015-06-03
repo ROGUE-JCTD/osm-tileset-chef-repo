@@ -18,5 +18,5 @@ end
 
 execute "create extension" do
    user "postgres"
-   command "psql -d #{node['db_name']} -c \"create extension adminpack; create extension hstore;\"
+   command "psql -d #{node['db_name']} -c \"create extension adminpack; create extension hstore;\""
 end
