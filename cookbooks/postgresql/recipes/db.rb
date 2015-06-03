@@ -20,3 +20,19 @@ execute "create extension" do
    user "postgres"
    command "psql -d #{node['db_name']} -c \"create extension adminpack; create extension hstore;\""
 end
+
+execute "create extension" do
+   user "postgres"
+   command "psql -d #{node['db_name']} -c \"create extension adminpack; create extension hstore;\""
+end
+
+
+execute "grant connect" do
+   user "postgres"
+   command "psql -d #{node['db_name']} -c \"GRANT CONNECT ON DATABASE #{node['db_name']} to #{node['db_render_name']};\""
+end
+
+execute "grant select" do
+   user "postgres"
+   command "psql -d #{node['db_name']} -c \"GRANT SELECT ON ALL TABLES IN SCHEMA public to #{node['db_render_name']};\""
+end
