@@ -76,5 +76,6 @@ chef.json = {
           { type: 'host', db: 'all', user: 'all', addr: '::1/128 ', method: 'md5' } 
   ]
   }
+}
   end
 end
