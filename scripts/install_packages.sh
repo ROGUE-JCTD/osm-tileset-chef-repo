@@ -7,7 +7,7 @@ set -e
 # Update the package list
 apt-get update
 
-# Install packages
+# Initial packages requirements
 apt-get install -y curl
 apt-get install -y git
 apt-get install -y libpq-dev
