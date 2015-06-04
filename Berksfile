@@ -1,7 +1,7 @@
 source 'https://api.berkshelf.com'
 
 cookbook 'openssl'
-cookbook 'build-essentils'
+cookbook 'build-essentil'
 cookbook 'apt'
 cookbook 'postgresql'
 cookbook 'database',
