@@ -1,3 +1,7 @@
 site :opscode
 
-cookbook 'postgresql'
+cookbook 'openssl'
+cookbook 'build-essentils'
+cookbook 'apt'
+cookbook 'postgresql' '~> 3.4.20'
+cookbook 'database', '~> 4.0.6'
