@@ -20,7 +20,7 @@ default_attributes(
 )
 
 run_list(
- "recipe[postgresql::packages]",
- "recipe[postgresql::db]",
- "recipe[postgresql::postgis]"
+ "recipe[postgresql2::packages]",
+ "recipe[postgresql2::db]",
+ "recipe[postgresql2::postgis]"
 )

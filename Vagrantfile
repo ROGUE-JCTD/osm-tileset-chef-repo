@@ -50,6 +50,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe "accounts::users"
     chef.add_recipe "apt"
     chef.add_role "db_main"
+    chef.add_recipe "postgresql::ruby"
     chef.add_recipe "postgresql::server"
     chef.add_recipe "osm"
     chef.add_recipe "apache"
