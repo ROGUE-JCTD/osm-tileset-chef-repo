@@ -29,15 +29,14 @@ else
 fi
 
 #echo "Bundle install......"
-#gem install bundler
-#bundle install
+gem install bundler
+bundle install
 #echo "Bundle complete....."
 #
 #echo "Berks install......"
-#gem install berkshelf -v 3.2.3
-#berks install
-#cd ..
-#echo "Berks complete..."
+gem install berkshelf -v 3.2.3
+berks install
+echo "Berks complete..."
 
 cd ..
 curl -L https://www.chef.io/chef/install.sh | sudo bash

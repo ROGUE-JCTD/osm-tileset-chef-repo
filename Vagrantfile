@@ -50,6 +50,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe "accounts::users"
     chef.add_recipe "apt"
     chef.add_role "db_main"
+    chef.add_role "postgresql::server"
     chef.add_recipe "osm"
     chef.add_recipe "apache"
 #    chef.add_recipe "apache2::mod_rewrite"
@@ -62,5 +63,18 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         :listen_ports => [ "80", "8080" ]
       }
     }
+chef.json = {
+
+  "postgresql" => {
+      "version" => "9.3",
+      config: { 
+      "ssl" => "false" 
+  },
+      pg_hba: [  
+          { type: 'local', db: 'all', user: 'all', addr: '', method: 'ident' },
+          { type: 'host', db: 'all', user: 'all', addr: '127.0.0.1/32', method: 'md5' },
+          { type: 'host', db: 'all', user: 'all', addr: '::1/128 ', method: 'md5' } 
+  ]
+  }
   end
 end
