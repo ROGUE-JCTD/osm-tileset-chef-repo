@@ -10,3 +10,4 @@ apt-get update
 # Install packages
 apt-get install -y curl
 apt-get install -y git
+apt-get install -y libpq-dev
