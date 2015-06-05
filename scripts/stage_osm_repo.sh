@@ -26,6 +26,7 @@ else
   git clone https://github.com/ROGUE-JCTD/osm-tileset-chef-repo
   chown -R vagrant:vagrant osm-tileset-chef-repo
   cd osm-tileset-chef-repo
+  echo $PWD
 fi
 
 #echo "Bundle install......"
