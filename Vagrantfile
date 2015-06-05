@@ -2,6 +2,7 @@
 
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
+BERKSHELF = true
 
 # We'll mount the Chef::Config[:file_cache_path] so it persists between
 # Vagrant VMs
@@ -13,7 +14,6 @@ FileUtils.mkdir(host_cache_path) unless File.exist?(host_cache_path)
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
-config.berkshelf.enabled = true
 # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "trusty64"
 #  config.vm.box = "precise64"
@@ -41,7 +41,8 @@ config.berkshelf.enabled = true
     vb.customize ["modifyvm", :id, "--memory", "8192"]
     vb.customize ["modifyvm", :id, "--cpus", "2"]
   end
-
+if BERKSHELF
+    config.berkshelf.enabled = true
   config.vm.provision :chef_solo do |chef|
     chef.provisioning_path = "/opt/vagrant-chef"
     chef.roles_path = "roles"
@@ -79,5 +80,6 @@ chef.json = {
   ]
   }
 }
+    end
   end
 end
