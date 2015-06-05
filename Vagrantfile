@@ -42,7 +42,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.customize ["modifyvm", :id, "--cpus", "2"]
   end
 #if BERKSHELF
-    config.berkshelf.enabled = true
+#    config.berkshelf.enabled = true
   config.vm.provision :chef_solo do |chef|
     chef.provisioning_path = "/opt/vagrant-chef"
     chef.roles_path = "roles"
