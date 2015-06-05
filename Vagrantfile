@@ -2,7 +2,7 @@
 
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
-BERKSHELF = true
+BERKSHELF = false
 
 # We'll mount the Chef::Config[:file_cache_path] so it persists between
 # Vagrant VMs
@@ -44,7 +44,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 #if BERKSHELF
 #    config.berkshelf.enabled = true
   config.vm.provision :chef_solo do |chef|
-    chef.provisioning_path = "/opt/vagrant-chef"
+    chef.provisioning_path = "/opt/osm-tileset-chef-repo"
     chef.roles_path = "roles"
     chef.cookbooks_path = "cookbooks"
     chef.json={'vagrant'=>true}
