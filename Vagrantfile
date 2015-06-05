@@ -44,7 +44,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 #if BERKSHELF
 #    config.berkshelf.enabled = true
   config.vm.provision :chef_solo do |chef|
-    chef.provisioning_path = "/opt/osm-tileset-chef-repo"
+#    chef.provisioning_path = "/opt/osm-tileset-chef-repo"
+    chef.provisioning_path = "/opt/rogue"
     chef.roles_path = "roles"
     chef.cookbooks_path = "cookbooks"
     chef.json={'vagrant'=>true}
