@@ -13,6 +13,7 @@ FileUtils.mkdir(host_cache_path) unless File.exist?(host_cache_path)
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
+config.berkshelf.enabled = true
 # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "trusty64"
 #  config.vm.box = "precise64"
@@ -40,8 +41,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.customize ["modifyvm", :id, "--memory", "8192"]
     vb.customize ["modifyvm", :id, "--cpus", "2"]
   end
-
-config.berkshelf.enabled = true
 
   config.vm.provision :chef_solo do |chef|
     chef.provisioning_path = "/opt/vagrant-chef"
