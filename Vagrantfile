@@ -2,7 +2,7 @@
 
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
-BERKSHELF = false
+#BERKSHELF = false
 
 # We'll mount the Chef::Config[:file_cache_path] so it persists between
 # Vagrant VMs
@@ -43,20 +43,20 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 #if BERKSHELF
 #    config.berkshelf.enabled = true
-  config.vm.provision :chef_solo do |chef|
+##  config.vm.provision :chef_solo do |chef|
 #    chef.provisioning_path = "/opt/osm-tileset-chef-repo"
-    chef.provisioning_path = "/opt/rogue"
-    chef.roles_path = "roles"
-    chef.cookbooks_path = "cookbooks"
-    chef.json={'vagrant'=>true}
-    chef.add_recipe "accounts::groups"
-    chef.add_recipe "accounts::users"
-    chef.add_recipe "apt"
-    chef.add_role "db_main"
-    chef.add_recipe "postgresql::ruby"
-    chef.add_recipe "postgresql::server"
-    chef.add_recipe "osm"
-    chef.add_recipe "apache"
+##    chef.provisioning_path = "/opt/rogue"
+##    chef.roles_path = "roles"
+##    chef.cookbooks_path = "cookbooks"
+##    chef.json={'vagrant'=>true}
+##    chef.add_recipe "accounts::groups"
+##    chef.add_recipe "accounts::users"
+##    chef.add_recipe "apt"
+##    chef.add_role "db_main"
+##    chef.add_recipe "postgresql::ruby"
+##    chef.add_recipe "postgresql::server"
+##    chef.add_recipe "osm"
+##    chef.add_recipe "apache"
 #    chef.add_recipe "apache2::mod_rewrite"
 #    chef.add_recipe "apache2::mod_headers"
 #    chef.add_recipe "apache2::mod_deflate"
