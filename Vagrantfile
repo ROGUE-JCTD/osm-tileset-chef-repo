@@ -62,25 +62,25 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 #    chef.add_recipe "apache2::mod_deflate"
 #    chef.add_recipe "perl"
     # JSON Apache2 attributes:
-    chef.json = {
-      :apache => {
-        :listen_ports => [ "80", "8080" ]
-      }
-    }
-chef.json = {
+##    chef.json = {
+##      :apache => {
+##        :listen_ports => [ "80", "8080" ]
+##      }
+##    }
+##chef.json = {
 
-  "postgresql" => {
-      "version" => "9.3",
-      config: { 
-      "ssl" => "false" 
-  },
-      pg_hba: [  
-          { type: 'local', db: 'all', user: 'all', addr: '', method: 'ident' },
-          { type: 'host', db: 'all', user: 'all', addr: '127.0.0.1/32', method: 'md5' },
-          { type: 'host', db: 'all', user: 'all', addr: '::1/128 ', method: 'md5' } 
-  ]
-  }
-}
-#    end
-  end
+##  "postgresql" => {
+##      "version" => "9.3",
+##      config: { 
+##      "ssl" => "false" 
+##  },
+##      pg_hba: [  
+##          { type: 'local', db: 'all', user: 'all', addr: '', method: 'ident' },
+##          { type: 'host', db: 'all', user: 'all', addr: '127.0.0.1/32', method: 'md5' },
+##          { type: 'host', db: 'all', user: 'all', addr: '::1/128 ', method: 'md5' } 
+##  ]
+##  }
+##}
+##    end
+##  end
 end
