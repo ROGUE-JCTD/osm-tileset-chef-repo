@@ -43,13 +43,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 #if BERKSHELF
 #    config.berkshelf.enabled = true
-##  config.vm.provision :chef_solo do |chef|
+  config.vm.provision :chef_solo do |chef|
 #    chef.provisioning_path = "/opt/osm-tileset-chef-repo"
-##    chef.provisioning_path = "/opt/rogue"
-##    chef.roles_path = "roles"
-##    chef.cookbooks_path = "cookbooks"
-##    chef.json={'vagrant'=>true}
-##    chef.add_recipe "accounts::groups"
+    chef.provisioning_path = "/opt/rogue"
+    chef.roles_path = "roles"
+    chef.cookbooks_path = "cookbooks"
+    chef.json={'vagrant'=>true}
+    chef.add_recipe "accounts::groups"
 ##    chef.add_recipe "accounts::users"
 ##    chef.add_recipe "apt"
 ##    chef.add_role "db_main"
@@ -82,5 +82,5 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 ##  }
 ##}
 ##    end
-##  end
+  end
 end
