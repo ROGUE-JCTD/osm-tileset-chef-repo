@@ -47,7 +47,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 #    chef.provisioning_path = "/opt/osm-tileset-chef-repo"
     chef.provisioning_path = "/opt/chef-solo"
     chef.roles_path = "roles"
-    chef.cookbooks_path = "cookbooks"
+    chef.cookbooks_path = "/opt/chef-run/cookbooks"
     chef.json={'vagrant'=>true}
     chef.add_recipe "geoshape-osm::groups"
     chef.add_recipe "geoshape-osm::users"
