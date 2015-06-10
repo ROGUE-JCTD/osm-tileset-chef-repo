@@ -38,19 +38,19 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.gui = true
     vb.name = 'geoshape_mapnik'
     # Use VBoxManage to customize the VM memory and CPUs.
-    vb.customize ["modifyvm", :id, "--memory", "8192"]
+    vb.customize ["modifyvm", :id, "--memory", "4096"]
     vb.customize ["modifyvm", :id, "--cpus", "2"]
   end
 #if BERKSHELF
 #    config.berkshelf.enabled = true
   config.vm.provision :chef_solo do |chef|
 #    chef.provisioning_path = "/opt/osm-tileset-chef-repo"
-    chef.provisioning_path = "/opt/rogue"
+    chef.provisioning_path = "/opt/chef-solo"
     chef.roles_path = "roles"
     chef.cookbooks_path = "cookbooks"
     chef.json={'vagrant'=>true}
     chef.add_recipe "accounts::groups"
-##    chef.add_recipe "accounts::users"
+    chef.add_recipe "accounts::users"
 ##    chef.add_recipe "apt"
 ##    chef.add_role "db_main"
 ##    chef.add_recipe "postgresql::ruby"
