@@ -49,11 +49,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.roles_path = "roles"
     chef.cookbooks_path = "/opt/chef-run/cookbooks"
     chef.json={'vagrant'=>true}
+    chef.add_recipe "geoshapeosm::apt-updates"
     chef.add_recipe "geoshapeosm::groups"
     chef.add_recipe "geoshapeosm::users"
-    chef.add_recipe "geoshapeosm::apt"
 ##    chef.add_role "db_main"
-##    chef.add_recipe "postgresql::ruby"
+    chef.add_recipe "postgresql::ruby"
 ##    chef.add_recipe "postgresql::server"
 ##    chef.add_recipe "geoshapeosm::osm"
 ##    chef.add_recipe "apache"
