@@ -17,7 +17,7 @@ execute 'git pull && git checkout' do
    cwd '/home/osmdata/src/carto'
    user 'osmdata'
 end
-execute 'npm install' do
-   user 'osmdata'
-   cwd '/home/osmdata/src/carto'
-end
+#execute 'npm install' do
+#   user 'osmdata'
+#   cwd '/home/osmdata/src/carto'
+#end
