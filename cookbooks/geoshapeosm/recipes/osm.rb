@@ -18,12 +18,13 @@ execute 'git pull && git checkout' do
    user 'osmdata'
 end
 execute 'add-apt-repository -y ppa:chris-lea/node.js' do
+   cwd '/home/osmdata/src'
    user 'root'
 end
 execute 'add-get-update' do
    user 'root'
 end
-execute 'add-get-install nodejs' do
+execute 'apt-get install nodejs' do
    cwd '/home/osmdata/src'
    user 'root'
 end
