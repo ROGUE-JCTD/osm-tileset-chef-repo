@@ -40,6 +40,7 @@ berks install
 echo "Berks complete..."
 mkdir -p /opt/chef-run/cookbooks
 berks vendor /opt/chef-run/cookbooks
+cp -r /opt/osm-tileset-chef-repo/cookbooks/geoshape-osm /opt/chef-run/cookbooks
 cd ..
 curl -L https://www.chef.io/chef/install.sh | sudo bash
 chmod -R 755 *

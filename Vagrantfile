@@ -49,8 +49,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.roles_path = "roles"
     chef.cookbooks_path = "cookbooks"
     chef.json={'vagrant'=>true}
-    chef.add_recipe "accounts::groups"
-    chef.add_recipe "accounts::users"
+    chef.add_recipe "geoshape-osm::groups"
+    chef.add_recipe "geoshape-osm::users"
 ##    chef.add_recipe "apt"
 ##    chef.add_role "db_main"
 ##    chef.add_recipe "postgresql::ruby"
