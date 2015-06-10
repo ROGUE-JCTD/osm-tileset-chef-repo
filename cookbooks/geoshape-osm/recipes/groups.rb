@@ -1,7 +1,8 @@
 #
-# Author:: Seth Chisamore (<schisamo@chef.io>)
-# Copyright:: Copyright (c) 2011 Chef Software, Inc.
-# License:: Apache License, Version 2.0
+# Cookbook Name:: users
+# Recipe:: default
+#
+# Copyright 2009-2012, Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,17 +17,12 @@
 # limitations under the License.
 #
 
-require File.join(File.dirname(__FILE__), 'resource_database')
-require File.join(File.dirname(__FILE__), 'provider_database_sql_server')
+# Create system group accounts
 
-class Chef
-  class Resource
-    class SqlServerDatabase < Chef::Resource::Database
-      def initialize(name, run_context = nil)
-        super
-        @resource_name = :sql_server_database
-        @provider = Chef::Provider::Database::SqlServer
-      end
-    end
-  end
+group 'osmdata' do
+  action :create
+end
+
+group 'osmrender' do
+  action :create
 end
