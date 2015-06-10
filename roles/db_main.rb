@@ -20,7 +20,7 @@ default_attributes(
 )
 
 run_list(
- "recipe[postgresql2::packages]",
- "recipe[postgresql2::db]",
- "recipe[postgresql2::postgis]"
+ "recipe[geoshapeosm::db_packages]",
+ "recipe[geoshapeosm::db_create]",
+ "recipe[geoshapeosm::postgis]"
 )
