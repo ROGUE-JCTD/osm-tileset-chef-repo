@@ -25,8 +25,7 @@ end
 execute 'apt-get install -y nodejs' do
    cwd '/home/osmdata/src'
 end
-execute 'npm install npm' do
-   cwd '/home/osmdata/src'
+execute 'cd /home/osmdata/src;npm install npm' do
    user 'osmdata'
 end
 execute 'npm install millstone carto' do
