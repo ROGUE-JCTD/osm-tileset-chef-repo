@@ -24,7 +24,7 @@ end
 execute 'apt-get update' do
    user 'root'
 end
-execute 'apt-get install nodejs' do
+execute 'apt-get install -y nodejs' do
    cwd '/home/osmdata/src'
    user 'root'
 end
