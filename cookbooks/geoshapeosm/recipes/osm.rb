@@ -21,7 +21,7 @@ execute 'add-apt-repository -y ppa:chris-lea/node.js' do
    cwd '/home/osmdata/src'
    user 'root'
 end
-execute 'add-get-update' do
+execute 'apt-get-update' do
    user 'root'
 end
 execute 'apt-get install nodejs' do
