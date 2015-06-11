@@ -4,7 +4,12 @@ bash 'configure_carto_tree' do
    code <<-EOH
 	cd /home/osmdata
 	mkdir /home/osmdata/src
+	cd /home/osmdata/src
 	git clone https://github.com/gravitystorm/openstreetmap-carto.git
+	cd /home/osmdata/src/openstreetmap-carto
+	git pull && git checkout
+	cd /home/osmdata/src
+	git clone https://github.com/mapbox/carto.git
 	cd /home/osmdata/src/carto
 	git pull && git checkout
    EOH
@@ -39,6 +44,7 @@ bash 'configure_carto_tree' do
    code <<-EOH
 	cd /home/osmdata/src
 	npm install millstone carto
+	./node_modules/carto/bin/carto --version
    EOH
 end
 
