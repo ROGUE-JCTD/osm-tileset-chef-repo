@@ -20,10 +20,16 @@ execute "create osm database" do
    not_if { `sudo -u postgres psql -tAc \"SELECT * FROM pg_database WHERE datname='#{node['db_name']}';\" | wc -l`.chomp == "1" }
 end
 
-execute "create extension" do
+execute "create adminpack extension" do
    user "postgres"
-   command "psql -d #{node['db_name']} -c \"create extension adminpack; create extension hstore;\""
-   not_if { `sudo -u postgres psql -d '#{node['db_name']}' -tAc "SELECT * FROM pg_extension where extname = 'adminpack';";\" | wc -l`.chomp == "1" }
+   command "psql -d #{node['db_name']} -c \"create extension adminpack;\""
+   not_if { `sudo -u postgres psql -d '#{node['db_name']}' -tAc \"SELECT * FROM pg_extension where extname = 'adminpack';\" | wc -l`.chomp == "1" }
+end
+
+execute "create adminpack extension" do
+   user "postgres"
+   command "psql -d #{node['db_name']} -c \"create extension hstore;\""
+   not_if { `sudo -u postgres psql -d '#{node['db_name']}' -tAc \"SELECT * FROM pg_extension where extname = 'hstore';\" | wc -l`.chomp == "1" }
 end
 
 execute "grant connect" do
