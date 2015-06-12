@@ -6,7 +6,6 @@ execute "create role" do
    user "postgres"
    command "psql -c \"create role #{node['db_admin_name']} with createdb inherit login;\""
    not_if { `sudo -u postgres psql -tAc \"SELECT * FROM pg_roles WHERE rolname = '#{node['db_admin_name']}';\" | wc -l`.chomp == "1" }
-   not_if exists
 end
 
 execute "create role" do
