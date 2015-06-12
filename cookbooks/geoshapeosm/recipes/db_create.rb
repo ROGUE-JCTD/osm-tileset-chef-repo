@@ -1,5 +1,6 @@
 package "postgresql"
 package "postgresql-contrib"
+include_recipe "postgresql::server"
 
 execute "create role" do
    user "postgres"
