@@ -23,6 +23,7 @@ end
 execute "create extension" do
    user "postgres"
    command "psql -d #{node['db_name']} -c \"create extension adminpack; create extension hstore;\""
+   not_if { `sudo -u postgres psql -tAc \"SELECT * FROM pg_extension WHERE extname='adminpack'\" | wc -l`.chomp == "1" }
 end
 
 execute "grant connect" do
