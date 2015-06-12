@@ -1,8 +1,8 @@
 bash 'configure_carto_tree' do
-   user 'root'
+   user 'osmdata'
    cwd '/home/osmdata'
    code <<-EOH
-	su - osmdata
+	sudo su - osmdata
 	cd /home/osmdata
 	mkdir /home/osmdata/src
 	cd /home/osmdata/src
@@ -34,14 +34,13 @@ bash 'configure_carto_tree' do
    user 'root'
    cwd '/home/osmdata/src'
    code <<-EOH
-	su - osmdata
 	cd /home/osmdata/src
 	npm install npm
    EOH
 end
 
 bash 'configure_carto_tree' do
-   user 'osmdata'
+   user 'root'
    cwd '/home/osmdata/src'
    code <<-EOH
 	su - osmdata
