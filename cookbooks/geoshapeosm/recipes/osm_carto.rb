@@ -18,9 +18,9 @@ end
 
 execute 'add-apt-repository -y ppa:chris-lea/node.js' do
 end
+
 execute 'apt-get update' do
 end
-
 
 bash 'install_nodejs' do
    cwd '/home/osmdata/src'
@@ -29,7 +29,7 @@ bash 'install_nodejs' do
    EOH
 end
 
-bash 'configure_carto_tree' do
+bash 'install_npm' do
    user 'root'
    cwd '/home/osmdata/src'
    code <<-EOH
@@ -39,7 +39,7 @@ bash 'configure_carto_tree' do
    EOH
 end
 
-bash 'configure_carto_tree' do
+bash 'install_millstone' do
    user 'root'
    cwd '/home/osmdata/src'
    code <<-EOH
@@ -49,9 +49,8 @@ bash 'configure_carto_tree' do
    EOH
 end
 
-execute './node_modules/carto/bin/carto --version' do
+execute 'chown -R osmdata:osmdata /home/osmdata/src' do
    user 'root'
-   cwd '/home/osmdata/src'
 end
 
 #execute 'mkdir /home/osmdata/src' do
