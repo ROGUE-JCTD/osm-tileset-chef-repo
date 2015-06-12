@@ -5,9 +5,9 @@ bash 'install_mod_tile' do
 	cd /home/osmdata/src
 	git clone git://github.com/openstreetmap/mod_tile.git
 	cd /home/osmdata/src/mod_tile
-	autogen.sh
+	./autogen.sh
 	cd /home/osmdata/src/mod_tile
-	configure
+	./configure
 	cd /home/osmdata/src/mod_tile
 	make
    EOH
