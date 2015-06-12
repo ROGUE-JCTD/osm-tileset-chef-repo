@@ -33,6 +33,7 @@ bash 'configure_carto_tree' do
    user 'root'
    cwd '/home/osmdata/src'
    code <<-EOH
+	su - osmdata
 	cd /home/osmdata/src
 	npm install npm
    EOH
@@ -45,8 +46,12 @@ bash 'configure_carto_tree' do
 	su - osmdata
 	cd /home/osmdata/src
 	npm install millstone carto
-	./node_modules/carto/bin/carto --version
    EOH
+end
+
+execute './node_modules/carto/bin/carto --version' do
+   user 'root'
+   cwd '/home/osmdata/src'
 end
 
 #execute 'mkdir /home/osmdata/src' do
