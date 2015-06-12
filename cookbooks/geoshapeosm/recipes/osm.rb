@@ -30,7 +30,7 @@ bash 'install_nodejs' do
 end
 
 bash 'configure_carto_tree' do
-#   user 'root'
+   user 'root'
    cwd '/home/osmdata/src'
    code <<-EOH
 	cd /home/osmdata/src
@@ -39,7 +39,7 @@ bash 'configure_carto_tree' do
 end
 
 bash 'configure_carto_tree' do
-#   user 'root'
+   user 'root'
    cwd '/home/osmdata/src'
    code <<-EOH
 	su - osmdata
