@@ -3,7 +3,7 @@ bash 'configure_carto_tree' do
    cwd '/home/osmdata'
    code <<-EOH
 	sudo su - osmdata
-	cd /home/osmdata
+#	cd /home/osmdata
 	mkdir /home/osmdata/src
 	cd /home/osmdata/src
 	git clone https://github.com/gravitystorm/openstreetmap-carto.git
@@ -23,7 +23,6 @@ end
 
 
 bash 'install_nodejs' do
-   user 'root'
    cwd '/home/osmdata/src'
    code <<-EOH
 	apt-get install -y nodejs
@@ -31,7 +30,7 @@ bash 'install_nodejs' do
 end
 
 bash 'configure_carto_tree' do
-   user 'root'
+#   user 'root'
    cwd '/home/osmdata/src'
    code <<-EOH
 	cd /home/osmdata/src
@@ -40,7 +39,7 @@ bash 'configure_carto_tree' do
 end
 
 bash 'configure_carto_tree' do
-   user 'root'
+#   user 'root'
    cwd '/home/osmdata/src'
    code <<-EOH
 	su - osmdata
