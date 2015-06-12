@@ -4,11 +4,13 @@ package "postgresql-contrib"
 execute "create role" do
    user "postgres"
    command "psql -c \"create role #{node['db_admin_name']} with createdb inherit login;\""
+   not_if "psql -c "SELECT rolname FROM pg_roles where rolname = '#{node['db_admin_name']}'";
 end
 
 execute "create role" do
    user "postgres"
    command "psql -c \"create role #{node['db_render_name']} with inherit login;\""
+   not_if "psql -c "SELECT rolname FROM pg_roles where rolname = '#{node['db_render_name']}'";
 end
 
 execute "create osm database" do
