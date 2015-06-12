@@ -4,7 +4,8 @@ package "postgresql-contrib"
 execute "create role" do
    user "postgres"
    command "psql -c \"create role #{node['db_admin_name']} with createdb inherit login;\""
-   not_if "psql -c \"SELECT rolname FROM pg_roles where rolname = '#{node['db_admin_name']}'\" | grep -c #{node['db_admin_name']}";
+#   not_if "psql -c \"SELECT rolname FROM pg_roles where rolname = '#{node['db_admin_name']}'\" | grep -c #{node['db_admin_name']}";
+   not_if exists
 end
 
 execute "create role" do
