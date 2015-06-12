@@ -26,7 +26,7 @@ user 'osmdata' do
   home '/home/osmdata'
   password '$1$gkl9sSWg$U9aIhckrcXwr08PLbx7NG1'
   system false
-  action :manage
+  action :create
 end
 user 'osmrender' do
   supports :manage_home => true
@@ -36,7 +36,7 @@ user 'osmrender' do
   shell '/bin/false'
   home '/home/osmrender'
   system false
-  action :manage
+  action :create
 end
 user 'tilecache' do
   supports :manage_home => true
@@ -46,5 +46,5 @@ user 'tilecache' do
   shell '/bin/false'
   home '/home/tilecache'
   system false
-  action :manage
+  action :create
 end
