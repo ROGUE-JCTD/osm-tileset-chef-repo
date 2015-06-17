@@ -22,11 +22,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision :shell, :path => "scripts/install_rvm.sh",  :args => "stable"
   config.vm.provision :shell, :path => "scripts/install_ruby.sh", :args => "1.9.3"
 #  config.vm.provision :shell, :path => "scripts/install_ruby.sh", :args => "2.2.1"
-#  config.vm.provision :shell, :path => "scripts/stage_osm_repo.sh"
 
-#  unless BERKSHELF
+  unless BERKSHELF
     config.vm.provision :shell, :path => "scripts/stage_osm_repo.sh", :args => "vagrant release-1.4"
-#  end
+  end
   config.vm.provision :shell, :inline => "gem install chef --version 11.10.4 --no-rdoc --no-ri --conservative"
 
 # The url from where the 'config.vm.box' box will be fetched if it doesn't already exist on the user's system. Comment out 
@@ -44,10 +43,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.customize ["modifyvm", :id, "--memory", "4096"]
     vb.customize ["modifyvm", :id, "--cpus", "2"]
   end
-#if BERKSHELF
+if BERKSHELF
   config.berkshelf.enabled = true
   config.vm.provision :chef_solo do |chef|
-    chef.provisioning_path = "/opt/chef-solo"
+    chef.provisioning_path = "/opt/run"
     chef.roles_path = "roles"
     chef.cookbooks_path = "/opt/chef-run/cookbooks"
     chef.json={'vagrant'=>true}
@@ -82,6 +81,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 ##  ]
 ##  }
 ##}
-##    end
+    end
   end
 end
