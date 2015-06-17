@@ -1,9 +1,9 @@
 bash 'configure_carto_tree' do
-   user 'root'
+   user 'osmdata'
    cwd '/home/osmdata'
    code <<-EOH
-	su - osmdata
-	cd /home/osmdata
+	sudo su - osmdata
+#	cd /home/osmdata
 	mkdir /home/osmdata/src
 	cd /home/osmdata/src
 	git clone https://github.com/gravitystorm/openstreetmap-carto.git
@@ -18,19 +18,18 @@ end
 
 execute 'add-apt-repository -y ppa:chris-lea/node.js' do
 end
+
 execute 'apt-get update' do
 end
 
-
 bash 'install_nodejs' do
-   user 'root'
    cwd '/home/osmdata/src'
    code <<-EOH
 	apt-get install -y nodejs
    EOH
 end
 
-bash 'configure_carto_tree' do
+bash 'install_npm' do
    user 'root'
    cwd '/home/osmdata/src'
    code <<-EOH
@@ -40,15 +39,18 @@ bash 'configure_carto_tree' do
    EOH
 end
 
-bash 'configure_carto_tree' do
-   user 'osmdata'
+bash 'install_millstone' do
+   user 'root'
    cwd '/home/osmdata/src'
    code <<-EOH
 	su - osmdata
 	cd /home/osmdata/src
 	npm install millstone carto
-	./node_modules/carto/bin/carto --version
    EOH
+end
+
+execute 'chown -R osmdata:osmdata /home/osmdata/src' do
+   user 'root'
 end
 
 #execute 'mkdir /home/osmdata/src' do

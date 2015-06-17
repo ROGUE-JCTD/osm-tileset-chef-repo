@@ -1,24 +1,35 @@
+#   not_if "psql -c \"SELECT rolname FROM pg_roles where rolname = '#{node['db_admin_name']}'\" | grep -c #{node['db_admin_name']}";
 package "postgresql"
 package "postgresql-contrib"
 
 execute "create role" do
    user "postgres"
    command "psql -c \"create role #{node['db_admin_name']} with createdb inherit login;\""
+   not_if { `sudo -u postgres psql -tAc \"SELECT * FROM pg_roles WHERE rolname = '#{node['db_admin_name']}';\" | wc -l`.chomp == "1" }
 end
 
 execute "create role" do
    user "postgres"
    command "psql -c \"create role #{node['db_render_name']} with inherit login;\""
+   not_if { `sudo -u postgres psql -tAc \"SELECT * FROM pg_roles WHERE rolname = '#{node['db_render_name']}';\" | wc -l`.chomp == "1" }
 end
 
 execute "create osm database" do
    user "postgres"
    command "psql -c \"create database #{node['db_name']} owner #{node['db_admin_name']};\""
+   not_if { `sudo -u postgres psql -tAc \"SELECT * FROM pg_database WHERE datname='#{node['db_name']}';\" | wc -l`.chomp == "1" }
 end
 
-execute "create extension" do
+execute "create adminpack extension" do
    user "postgres"
-   command "psql -d #{node['db_name']} -c \"create extension adminpack; create extension hstore;\""
+   command "psql -d #{node['db_name']} -c \"create extension adminpack;\""
+   not_if { `sudo -u postgres psql -d '#{node['db_name']}' -tAc \"SELECT * FROM pg_extension where extname = 'adminpack';\" | wc -l`.chomp == "1" }
+end
+
+execute "create adminpack extension" do
+   user "postgres"
+   command "psql -d #{node['db_name']} -c \"create extension hstore;\""
+   not_if { `sudo -u postgres psql -d '#{node['db_name']}' -tAc \"SELECT * FROM pg_extension where extname = 'hstore';\" | wc -l`.chomp == "1" }
 end
 
 execute "grant connect" do

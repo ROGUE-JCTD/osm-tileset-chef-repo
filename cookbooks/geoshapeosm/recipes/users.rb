@@ -27,6 +27,7 @@ user 'osmdata' do
   password '$1$gkl9sSWg$U9aIhckrcXwr08PLbx7NG1'
   system false
   action :create
+  not_if "getent passwd osmdata"
 end
 user 'osmrender' do
   supports :manage_home => true
@@ -37,6 +38,7 @@ user 'osmrender' do
   home '/home/osmrender'
   system false
   action :create
+  not_if "getent passwd osmrender"
 end
 user 'tilecache' do
   supports :manage_home => true
@@ -47,4 +49,5 @@ user 'tilecache' do
   home '/home/tilecache'
   system false
   action :create
+  not_if "getent passwd tilecache"
 end
