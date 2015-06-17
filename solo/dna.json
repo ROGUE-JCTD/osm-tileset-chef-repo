@@ -1,5 +1,5 @@
 {
   "run_list": [
-    "role[tiles_core]"
+    "role[geoshape_mapnik_core]"
   ]
 }
