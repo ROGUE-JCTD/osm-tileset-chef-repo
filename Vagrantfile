@@ -1,8 +1,9 @@
+# -*- mode: ruby -*-
 # vi: set ft=ruby :
 
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
-#BERKSHELF = false
+BERKSHELF = false
 
 # We'll mount the Chef::Config[:file_cache_path] so it persists between
 # Vagrant VMs
@@ -16,13 +17,17 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
 # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "trusty64"
-#  config.vm.box = "precise64"
 # Install RVM, Ruby and Chef on the Virtual Machine.
   config.vm.provision :shell, :path => "scripts/install_packages.sh"
   config.vm.provision :shell, :path => "scripts/install_rvm.sh",  :args => "stable"
   config.vm.provision :shell, :path => "scripts/install_ruby.sh", :args => "1.9.3"
 #  config.vm.provision :shell, :path => "scripts/install_ruby.sh", :args => "2.2.1"
   config.vm.provision :shell, :path => "scripts/stage_osm_repo.sh"
+
+  unless BERKSHELF
+    config.vm.provision :shell, :path => "scripts/geoshape-install.sh", :args => "vagrant release-1.4"
+  end
+  config.vm.provision :shell, :inline => "gem install chef --version 11.10.4 --no-rdoc --no-ri --conservative"
 
 # The url from where the 'config.vm.box' box will be fetched if it doesn't already exist on the user's system. Comment out 
 # the version you want.
@@ -42,7 +47,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.customize ["modifyvm", :id, "--cpus", "2"]
   end
 #if BERKSHELF
-    config.berkshelf.enabled = true
+#    config.berkshelf.enabled = true
   config.vm.provision :chef_solo do |chef|
 #    chef.provisioning_path = "/opt/osm-tileset-chef-repo"
     chef.provisioning_path = "/opt/chef-solo"
