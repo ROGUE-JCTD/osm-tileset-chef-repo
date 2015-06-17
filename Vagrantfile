@@ -3,7 +3,6 @@
 
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
-BERKSHELF = false
 
 # We'll mount the Chef::Config[:file_cache_path] so it persists between
 # Vagrant VMs
@@ -23,9 +22,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision :shell, :path => "scripts/install_ruby.sh", :args => "1.9.3"
 #  config.vm.provision :shell, :path => "scripts/install_ruby.sh", :args => "2.2.1"
 
-  unless BERKSHELF
-    config.vm.provision :shell, :path => "scripts/stage_osm_repo.sh", :args => "vagrant release-1.4"
-  end
+  config.vm.provision :shell, :path => "scripts/stage_osm_repo.sh", :args => "vagrant release-1.4"
   config.vm.provision :shell, :inline => "gem install chef --version 11.10.4 --no-rdoc --no-ri --conservative"
 
 # The url from where the 'config.vm.box' box will be fetched if it doesn't already exist on the user's system. Comment out 
@@ -43,19 +40,19 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.customize ["modifyvm", :id, "--memory", "4096"]
     vb.customize ["modifyvm", :id, "--cpus", "2"]
   end
-if BERKSHELF
-  config.berkshelf.enabled = true
-  config.vm.provision :chef_solo do |chef|
-    chef.provisioning_path = "/opt/run"
-    chef.roles_path = "roles"
-    chef.cookbooks_path = "/opt/chef-run/cookbooks"
-    chef.json={'vagrant'=>true}
-    chef.add_recipe "geoshapeosm::apt-updates"
-    chef.add_recipe "geoshapeosm::groups"
-    chef.add_recipe "geoshapeosm::users"
-    chef.add_role "db_main"
-    chef.add_recipe "geoshapeosm::osm_carto"
-    chef.add_recipe "geoshapeosm::osm_renderd"
+##if BERKSHELF
+##  config.berkshelf.enabled = true
+##  config.vm.provision :chef_solo do |chef|
+##    chef.provisioning_path = "/opt/run"
+##    chef.roles_path = "roles"
+##    chef.cookbooks_path = "/opt/chef-run/cookbooks"
+##    chef.json={'vagrant'=>true}
+##    chef.add_recipe "geoshapeosm::apt-updates"
+##    chef.add_recipe "geoshapeosm::groups"
+##    chef.add_recipe "geoshapeosm::users"
+##    chef.add_role "db_main"
+##    chef.add_recipe "geoshapeosm::osm_carto"
+##    chef.add_recipe "geoshapeosm::osm_renderd"
 ##    chef.add_recipe "apache"
 #    chef.add_recipe "apache2::mod_rewrite"
 #    chef.add_recipe "apache2::mod_headers"
@@ -81,6 +78,6 @@ if BERKSHELF
 ##  ]
 ##  }
 ##}
-    end
-  end
+##    end
+##  end
 end
