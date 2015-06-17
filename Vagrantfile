@@ -33,8 +33,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 # the version you want.
 # trusty64
   config.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
-# precise64
-#  config.vm.box_url = "http://files.vagrantup.com/precise64.box"
 
 # configure the network
   config.vm.network :private_network, ip: "192.168.10.101"
@@ -47,9 +45,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.customize ["modifyvm", :id, "--cpus", "2"]
   end
 #if BERKSHELF
-#    config.berkshelf.enabled = true
+  config.berkshelf.enabled = true
   config.vm.provision :chef_solo do |chef|
-#    chef.provisioning_path = "/opt/osm-tileset-chef-repo"
     chef.provisioning_path = "/opt/chef-solo"
     chef.roles_path = "roles"
     chef.cookbooks_path = "/opt/chef-run/cookbooks"
