@@ -49,11 +49,11 @@ bash 'install_millstone' do
    EOH
 end
 
+execute './get-shapefiles.sh' do
+   cwd '/home/osmdata/src/openstreetmap-carto'
+   user 'osmdata'
+end
+
 execute 'chown -R osmdata:osmdata /home/osmdata/src' do
    user 'root'
 end
-#
-#execute './get-shapefiles.sh' do
-#   cwd '/home/osmdata/src/openstreetmap-carto'
-#   user 'osmdata'
-#end
