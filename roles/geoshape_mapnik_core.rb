@@ -1,23 +1,17 @@
-name "db_main"
-description "Main Geoshape Mapnik PostGIS install package"
+name "geoshape_mapnik_core"
+description "Main Geoshape Mapnik package install and configuration role script"
 
-default_attributes(
-  :postgresql => {
-    :versions => ["9.1"],
-    :settings => {
-      :defaults => {
-        :wal_level => "hot_standby",
-        :archive_mode => "off",
-        :archive_command => "/bin/cp %p /store/postgresql/archive/%f",
-        :max_wal_senders => "2",
-        :late_authentication_rules => [
-          { :database => "replication", :user => "replication", :address => "146.179.159.168/32" },
-          { :database => "replication", :user => "replication", :address => "146.179.159.170/32" }
-        ]
-      }
-    }
-  }
-)
+###############################################################################
+#
+# To Do someday
+#
+# Use Postgresql cookbook to manage the osm database.
+#
+# Need to see how it behaves with the installed database and postgis package.
+#
+# For now just run with the configuration settings in the cookbook.
+#
+###############################################################################
 
 run_list(
  "recipe[geoshapeosm::apt-updates]",

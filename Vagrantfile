@@ -40,44 +40,4 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.customize ["modifyvm", :id, "--memory", "4096"]
     vb.customize ["modifyvm", :id, "--cpus", "2"]
   end
-##if BERKSHELF
-##  config.berkshelf.enabled = true
-##  config.vm.provision :chef_solo do |chef|
-##    chef.provisioning_path = "/opt/run"
-##    chef.roles_path = "roles"
-##    chef.cookbooks_path = "/opt/chef-run/cookbooks"
-##    chef.json={'vagrant'=>true}
-##    chef.add_recipe "geoshapeosm::apt-updates"
-##    chef.add_recipe "geoshapeosm::groups"
-##    chef.add_recipe "geoshapeosm::users"
-##    chef.add_role "db_main"
-##    chef.add_recipe "geoshapeosm::osm_carto"
-##    chef.add_recipe "geoshapeosm::osm_renderd"
-##    chef.add_recipe "apache"
-#    chef.add_recipe "apache2::mod_rewrite"
-#    chef.add_recipe "apache2::mod_headers"
-#    chef.add_recipe "apache2::mod_deflate"
-#    chef.add_recipe "perl"
-    # JSON Apache2 attributes:
-##    chef.json = {
-##      :apache => {
-##        :listen_ports => [ "80", "8080" ]
-##      }
-##    }
-##chef.json = {
-
-##  "postgresql" => {
-##      "version" => "9.3",
-##      config: { 
-##      "ssl" => "false" 
-##  },
-##      pg_hba: [  
-##          { type: 'local', db: 'all', user: 'all', addr: '', method: 'ident' },
-##          { type: 'host', db: 'all', user: 'all', addr: '127.0.0.1/32', method: 'md5' },
-##          { type: 'host', db: 'all', user: 'all', addr: '::1/128 ', method: 'md5' } 
-##  ]
-##  }
-##}
-##    end
-##  end
 end
