@@ -16,38 +16,38 @@ bash 'configure_carto_tree' do
    EOH
 end
 
-execute 'add-apt-repository -y ppa:chris-lea/node.js' do
-end
-
-execute 'apt-get update' do
-end
-
-bash 'install_nodejs' do
-   cwd '/home/osmdata/src'
-   code <<-EOH
-	apt-get install -y nodejs
-   EOH
-end
-
-bash 'install_npm' do
-   user 'root'
-   cwd '/home/osmdata/src'
-   code <<-EOH
-	su - osmdata
-	cd /home/osmdata/src
-	npm install npm
-   EOH
-end
-
-bash 'install_millstone' do
-   user 'root'
-   cwd '/home/osmdata/src'
-   code <<-EOH
-	su - osmdata
-	cd /home/osmdata/src
-	npm install millstone carto
-   EOH
-end
+##execute 'add-apt-repository -y ppa:chris-lea/node.js' do
+##end
+##
+##execute 'apt-get update' do
+##end
+##
+##bash 'install_nodejs' do
+##   cwd '/home/osmdata/src'
+##   code <<-EOH
+##	apt-get install -y nodejs
+ ##  EOH
+##end
+##
+##bash 'install_npm' do
+##   user 'root'
+##   cwd '/home/osmdata/src'
+##   code <<-EOH
+##	su - osmdata
+##	cd /home/osmdata/src
+##	npm install npm
+##   EOH
+##end
+##
+##bash 'install_millstone' do
+##   user 'root'
+##   cwd '/home/osmdata/src'
+##   code <<-EOH
+##	su - osmdata
+##	cd /home/osmdata/src
+##	npm install millstone carto
+##   EOH
+##end
 
 execute './get-shapefiles.sh' do
    cwd '/home/osmdata/src/openstreetmap-carto'

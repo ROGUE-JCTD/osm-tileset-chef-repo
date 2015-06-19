@@ -16,7 +16,7 @@ execute "apt-update" do
 command "/usr/bin/apt-get update"
 end
 
-["python-software-properties", "git", "unzip"].each do |p|
+["python-software-properties", "git", "unzip", "autoconf", "libtool"].each do |p|
   package p
 end
 
@@ -24,7 +24,7 @@ end
   package p
 end
 
-["libmapnik2.2", "mapnik-utils", "python-mapnik", "libmapnik-dev"].each do |p|
+["libmapnik2.2", "mapnik-utils", "python-mapnik", "libmapnik-dev", "node-carto"].each do |p|
   package p
 end
 
@@ -36,7 +36,7 @@ end
   package p
 end
 
-["apache2-threaded-dev"].each do |p|
+["apache2-dev", "apache2-threaded-dev"].each do |p|
   package p
 end
 
