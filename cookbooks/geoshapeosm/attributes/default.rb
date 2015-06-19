@@ -1,4 +1,4 @@
-default['db_name'] = 'osm'
+default['db_name'] = 'gis'
 default['db_admin_name'] = 'osmdata'
 default['db_render_name'] = 'osmrender'
 default['db_password'] = '$1$ngB3EurO$i9SlxPxJoSUPhcLkYqcFm0'

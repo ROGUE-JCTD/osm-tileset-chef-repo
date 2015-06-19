@@ -31,7 +31,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
 
 # configure the network
-  config.vm.network :private_network, ip: "192.168.10.101"
+  config.vm.network :private_network, ip: "192.168.99.90"
   config.vm.provider :virtualbox do |vb|
     # Don't boot with headless mode
     vb.gui = true
