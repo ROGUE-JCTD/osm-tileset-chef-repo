@@ -24,7 +24,7 @@ end
   package p
 end
 
-["libmapnik2.2", "mapnik-utils", "python-mapnik", "libmapnik-dev"].each do |p|
+["libmapnik2.2", "mapnik-utils", "python-mapnik", "libmapnik-dev", "node-carto"].each do |p|
   package p
 end
 
