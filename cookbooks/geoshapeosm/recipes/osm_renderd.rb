@@ -25,13 +25,13 @@ execute 'ldconfig' do
    cwd '/home/osmdata/src/mod_tile'
 end
 
-bash 'config_renderd.conf' do
-   code <<-EOH
-	sed -i 's/XML=\/home\/jburgess\/osm\/svn\.openstreetmap\.org\/applications\/rendering\/mapnik\/osm\-local\.xml/XML=\/home\/osmdata\/src\/openstreetmap-carto\/mapnik.xml/' /usr/local/etc/renderd.conf
-	sed -i 's/HOST=tile\.openstreetmap\.org/HOST=localhost/' /usr/local/etc/renderd.conf
-	sed -i 's/plugins_dir=\/usr\/lib\/mapnik\/input/plugins_dir=\/usr\/lib\/mapnik\/2.2\/input\//' /usr/local/etc/renderd.conf
-   EOH
-end
+#bash 'config_renderd_conf' do
+#   code <<-EOH
+#	sed -i 's/XML=\/home\/jburgess\/osm\/svn\.openstreetmap\.org\/applications\/rendering\/mapnik\/osm\-local\.xml/XML=\/home\/osmdata\/src\/openstreetmap-carto\/mapnik.xml/' /usr/local/etc/renderd.conf
+#	sed -i 's/HOST=tile\.openstreetmap\.org/HOST=localhost/' /usr/local/etc/renderd.conf
+#	sed -i 's/plugins_dir=\/usr\/lib\/mapnik\/input/plugins_dir=\/usr\/lib\/mapnik\/2.2\/input\//' /usr/local/etc/renderd.conf
+#   EOH
+#end
 
 execute 'cp mod_tile/debian/renderd.init /etc/init.d/renderd' do
    cwd '/home/osmdata/src'
@@ -40,12 +40,21 @@ end
 execute 'chmod a+x /etc/init.d/renderd' do
 end
 
-bash 'config_renderd_daemon' do
-   code <<-EOH
-	sed -i 's/DAEMON=\/usr\/bin\/$NAME/DAEMON=\/usr\/local\/bin\/$NAME/' /etc/init.d/renderd
-	sed -i 's/DAEMON_ARGS=""/DAEMON_ARGS=" -c \/usr\/local\/etc\/renderd.conf/“’ /etc/init.d/renderd
-	sed -i 's/RUNASUSER=www-data/RUNASUSER=osmdata/ /etc/init.d/renderd
-   EOH
+#bash 'config_renderd_daemon' do
+#   code <<-EOH
+#	sed -i 's/DAEMON=\/usr\/bin\/$NAME/DAEMON=\/usr\/local\/bin\/$NAME/' /etc/init.d/renderd
+#	sed -i 's/DAEMON_ARGS=""/DAEMON_ARGS=" -c \/usr\/local\/etc\/renderd.conf/“’ /etc/init.d/renderd
+#	sed -i 's/RUNASUSER=www-data/RUNASUSER=osmdata/ /etc/init.d/renderd
+#   EOH
+#end
+
+execute "sed -i 's/DAEMON=\/usr\/bin\/$NAME/DAEMON=\/usr\/local\/bin\/$NAME/' /etc/init.d/renderd" do
+end
+
+execute "sed -i 's/DAEMON_ARGS=\"\"/DAEMON_ARGS=\" -c \/usr\/local\/etc\/renderd.conf/\“’ /etc/init.d/renderd" do
+end
+
+execute "sed -i 's/RUNASUSER=www-data/RUNASUSER=osmdata/' /etc/init.d/renderd" do
 end
 
 execute 'carto project.mml > mapnik.xml' do
