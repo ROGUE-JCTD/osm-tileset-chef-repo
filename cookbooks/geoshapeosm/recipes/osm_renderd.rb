@@ -66,7 +66,7 @@ end
 execute 'ln -s /etc/apache2/mods-available/tile.load /etc/apache2/mods-enabled/' do
 end
 
-execute 'cp -f /opt/osm-tileset-chef-repo/files /etc/apache2/sites-enabled/000-default.conf' do
+execute 'cp -f /opt/osm-tileset-chef-repo/files/000-default.conf /etc/apache2/sites-enabled/000-default.conf' do
 end
 
 execute 'chmod u=rw,go=r /etc/apache2/sites-available/000-default.conf' do
