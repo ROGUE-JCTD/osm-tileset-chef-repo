@@ -60,10 +60,6 @@ bash 'mkdir_mod_tile_dir' do
    EOH
 end
 
-service renderd start
-
-Apache
- 
 execute 'echo "LoadModule tile_module /usr/lib/apache2/modules/mod_tile.so" > /etc/apache2/mods-available/tile.load' do
 end
 
@@ -74,4 +70,10 @@ execute 'cp -f /opt/osm-tileset-chef-repo/files /etc/apache2/sites-enabled/000-d
 end
 
 execute 'chmod u=rw,go=r /etc/apache2/sites-available/000-default.conf' do
+end
+
+execute 'service renderd start' do
+end
+
+execute 'service apache2 restart' do
 end
