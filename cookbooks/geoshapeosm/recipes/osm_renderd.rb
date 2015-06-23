@@ -33,20 +33,21 @@ end
 #   EOH
 #end
 
+execute "sed -i 's/XML=\\/home.\/jburgess\\/osm\/svn\\.openstreetmap\\.org\\/applications\\/rendering\\/mapnik\\/osm\\-local\\.xml/XML=\\/home\\/osmdata\\/src\\/openstreetmap-carto\\/mapnik.xml/' /usr/local/etc/renderd.conf" do
+end
+
+execute "LoadTileConfigFile /usr/local/etc/renderd.conf" do
+end
+
+execute "sed -i 's/plugins_dir=\\/usr\\/lib\\/mapnik\\/input/plugins_dir=\\/usr\\/lib\\/mapnik\\/2.2\\/input\\//' /usr/local/etc/renderd.conf" do
+end
+
 execute 'cp mod_tile/debian/renderd.init /etc/init.d/renderd' do
    cwd '/home/osmdata/src'
 end
 
 execute 'chmod a+x /etc/init.d/renderd' do
 end
-
-#bash 'config_renderd_daemon' do
-#   code <<-EOH
-#	sed -i 's/DAEMON=\/usr\/bin\/$NAME/DAEMON=\/usr\/local\/bin\/$NAME/' /etc/init.d/renderd
-#	sed -i 's/DAEMON_ARGS=""/DAEMON_ARGS=" -c \/usr\/local\/etc\/renderd.conf/"’ /etc/init.d/renderd
-#	sed -i 's/RUNASUSER=www-data/RUNASUSER=osmdata/ /etc/init.d/renderd
-#   EOH
-#end
 
 execute "sed -i 's/DAEMON=\\/usr\\/bin\\/$NAME/DAEMON=\\/usr\\/local\\/bin\\/$NAME/' /etc/init.d/renderd" do
 end
