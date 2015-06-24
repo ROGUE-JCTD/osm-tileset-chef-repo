@@ -33,7 +33,7 @@ end
 #   EOH
 #end
 
-execute "sed -i 's/XML=\\/home.\/jburgess\\/osm\/svn\\.openstreetmap\\.org\\/applications\\/rendering\\/mapnik\\/osm\\-local\\.xml/XML=\\/home\\/osmdata\\/src\\/openstreetmap-carto\\/mapnik.xml/' /usr/local/etc/renderd.conf" do
+execute "sed -i 's/XML=\\/home.\\/jburgess\\/osm\/svn\\.openstreetmap\\.org\\/applications\\/rendering\\/mapnik\\/osm\\-local\\.xml/XML=\\/home\\/osmdata\\/src\\/openstreetmap-carto\\/mapnik.xml/' /usr/local/etc/renderd.conf" do
 end
 
 execute "LoadTileConfigFile /usr/local/etc/renderd.conf" do
