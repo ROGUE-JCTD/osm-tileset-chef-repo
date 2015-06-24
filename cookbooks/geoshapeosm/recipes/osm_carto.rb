@@ -16,10 +16,10 @@ bash 'configure_carto_tree' do
    EOH
 end
 
-#execute './get-shapefiles.sh' do
-#   cwd '/home/osmdata/src/openstreetmap-carto'
-#   user 'osmdata'
-#end
+execute './get-shapefiles.sh' do
+   cwd '/home/osmdata/src/openstreetmap-carto'
+   user 'osmdata'
+end
 
 execute 'chown -R osmdata:osmdata /home/osmdata/src' do
    user 'root'
