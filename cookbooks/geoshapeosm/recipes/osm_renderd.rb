@@ -33,14 +33,14 @@ end
 #   EOH
 #end
 
-#execute "sed -i 's/XML=\\/home\\/jburgess\\/osm\\/svn\.openstreetmap\.org\\/applications\\/rendering\\/mapnik\\/osm\-local\.xml/XML=\\/home\\/osm\\/openstreetmap-carto\\/style.xml/' /usr/local/etc/renderd.conf" do
-#end
+execute "sed -i 's/XML=\\/home\\/jburgess\\/osm\\/svn\.openstreetmap\.org\\/applications\\/rendering\\/mapnik\\/osm\-local\.xml/XML=\\/home\\/osm\\/openstreetmap-carto\\/style.xml/' /usr/local/etc/renderd.conf" do
+end
 
-#execute "sed -i 's/HOST=tile\.openstreetmap\.org/HOST=localhost/' /usr/local/etc/renderd.conf" do
-#end
+execute "sed -i 's/HOST=tile\.openstreetmap\.org/HOST=localhost/' /usr/local/etc/renderd.conf" do
+end
 
-#execute "sed -i 's/plugins_dir=\\/usr\\/lib\\/mapnik\\/input/plugins_dir=\\/usr\\/lib\\/mapnik\\/2.2\\/input\\//' /usr/local/etc/renderd.conf" do
-#end
+execute "sed -i 's/plugins_dir=\\/usr\\/lib\\/mapnik\\/input/plugins_dir=\\/usr\\/lib\\/mapnik\\/2.2\\/input\\//' /usr/local/etc/renderd.conf" do
+end
 
 execute "sed -i 's/plugins_dir=\\/usr\\/lib\\/mapnik\\/input/plugins_dir=\\/usr\\/lib\\/mapnik\\/2.2\\/input\\//' /usr/local/etc/renderd.conf" do
 end
@@ -85,8 +85,8 @@ end
 execute 'chmod u=rw,go=r /etc/apache2/sites-available/000-default.conf' do
 end
 
-execute '/opt/osm-tileset-chef-repo/scripts/install_test.sh' do
-end
+#execute '/opt/osm-tileset-chef-repo/scripts/install_test.sh' do
+#end
 
 execute 'service renderd stop' do
 end

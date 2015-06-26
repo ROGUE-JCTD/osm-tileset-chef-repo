@@ -18,8 +18,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "trusty64"
 # Install RVM, Ruby and Chef on the Virtual Machine.
   config.vm.provision :shell, :path => "scripts/install_packages.sh"
-  config.vm.provision :shell, :path => "scripts/install_rvm.sh",  :args => "stable"
-  config.vm.provision :shell, :path => "scripts/install_ruby.sh", :args => "1.9.3"
+#  config.vm.provision :shell, :path => "scripts/install_rvm.sh",  :args => "stable"
+#  config.vm.provision :shell, :path => "scripts/install_ruby.sh", :args => "1.9.3"
 #  config.vm.provision :shell, :path => "scripts/install_ruby.sh", :args => "2.2.1"
 
   config.vm.provision :shell, :path => "scripts/stage_osm_repo.sh", :args => "vagrant release-1.4"
