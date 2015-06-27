@@ -36,10 +36,6 @@ end
   package p
 end
 
-["apache2-threaded-dev"].each do |p|
-  package p
-end
-
 ["munin-node", "munin", "munin-plugins-extra", "libdbd-pg-perl", "sysstat", "iotop", "ptop"].each do |p|
   package p
 end
