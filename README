@@ -10,15 +10,14 @@ To import data, use the su command or su to the osmdata user and run the followi
 
 osm2pgsql --create --slim -C 1500 --number-processes 1 -S /home/osmdata/src/openstreetmap-carto/openstreetmap-carto.style --hstore --multi-geometry <Path to Dataset>
 
+Recently completed:
 
-To do:
+ - Removed unneseccary mapnik user accounts.  These were created following an openstreetmap wiki guideline but are unnecessary.
+ - Replaced package apache2-threaded-dec with apache2-dev
+ - Replaced ruby-2.0.0-p353 with ruby-2.0.0-p645.  This got rid of the security warnings.
+ - Cleaned up test code.
 
- - Remove unnecessary user accounts.  Initially followed an openstreetmap guideline that:
-	a - didn't work
-	b - was more complex than required
+Still to do:
 
-- Clean up test code.  This repo was originally based using the rouge-chef-repo and a lot
-or the code is unnecessary here.
-
-- Remove unnecessary packages.  Some of these are leftovers from migrating from mapnic on 
-an Ubuntu 12.04 to the 14.04 OS.
+- Review packages and remove unnecessary packages.  Some of these are leftovers from migrating from mapnic on 
+an Ubuntu 12.04 to the 14.04 OS and following inaccurate openstreetmap wiki guidelines.
