@@ -25,7 +25,15 @@ execute 'ldconfig' do
    cwd '/home/osmdata/src/mod_tile'
 end
 
-execute "sed -i 's/XML=\\/home\\/jburgess\\/osm\\/svn\.openstreetmap\.org\\/applications\\/rendering\\/mapnik\\/osm\-local\.xml/XML=\\/home\\/osmdata\\/src\\/openstreetmap-carto\\/mapnik.xml/' /usr/local/etc/renderd.conf" do
+#bash 'config_renderd_conf' do
+#   code <<-EOH
+#	sed -i 's/XML=\/home\/jburgess\/osm\/svn\.openstreetmap\.org\/applications\/rendering\/mapnik\/osm\-local\.xml/XML=\/home\/osmdata\/src\/openstreetmap-carto\/mapnik.xml/' /usr/local/etc/renderd.conf
+#	sed -i 's/HOST=tile\.openstreetmap\.org/HOST=localhost/' /usr/local/etc/renderd.conf
+#	sed -i 's/plugins_dir=\/usr\/lib\/mapnik\/input/plugins_dir=\/usr\/lib\/mapnik\/2.2\/input\//' /usr/local/etc/renderd.conf
+#   EOH
+#end
+
+execute "sed -i 's/XML=\\/home\\/jburgess\\/osm\\/svn\.openstreetmap\.org\\/applications\\/rendering\\/mapnik\\/osm\-local\.xml/XML=\\/home\\/osm\\/openstreetmap-carto\\/style.xml/' /usr/local/etc/renderd.conf" do
 end
 
 execute "sed -i 's/HOST=tile\.openstreetmap\.org/HOST=localhost/' /usr/local/etc/renderd.conf" do
@@ -80,7 +88,10 @@ end
 #execute '/opt/osm-tileset-chef-repo/scripts/install_test.sh' do
 #end
 
-execute 'service renderd restart' do
+execute 'service renderd stop' do
+end
+
+execute 'service renderd start' do
 end
 
 execute 'service apache2 restart' do
