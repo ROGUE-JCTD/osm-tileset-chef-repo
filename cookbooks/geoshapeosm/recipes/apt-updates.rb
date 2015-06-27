@@ -32,7 +32,7 @@ end
   package p
 end
 
-["apache2", "apache2-mpm-worker"].each do |p|
+["apache2", "apache2-dev", "apache2-mpm-worker"].each do |p|
   package p
 end
 
