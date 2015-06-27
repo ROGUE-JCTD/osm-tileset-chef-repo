@@ -16,7 +16,7 @@ execute "apt-update" do
 command "/usr/bin/apt-get update"
 end
 
-["python-software-properties", "git", "unzip"].each do |p|
+["python-software-properties", "unzip"].each do |p|
   package p
 end
 
@@ -33,10 +33,6 @@ end
 end
 
 ["apache2", "apache2-mpm-worker"].each do |p|
-  package p
-end
-
-["apache2-threaded-dev"].each do |p|
   package p
 end
 
