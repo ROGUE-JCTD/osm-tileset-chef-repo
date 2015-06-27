@@ -11,9 +11,9 @@ source /usr/local/rvm/scripts/rvm
 rvm get stable
 
 rvm list known
-rvm install ruby-2.0.0-p353
-rvm --default use 2.0.0-p353
-ruby -v # will show which version is being used
+#rvm install ruby-2.0.0-p353
+#rvm --default use 2.0.0-p353
+#ruby -v # will show which version is being used
 
 # Pull osm-rogue-repo if it doesn't already exist on the VM.
 
