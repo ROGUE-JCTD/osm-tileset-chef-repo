@@ -1,10 +1,10 @@
 Overview
 
-This repository creates a generic mapnik tile server with apache2.
+This repository creates a generic mapnik tile server with apache2 and PostGIS.
 
-The repo builds the mapnic server but it does not import data into the 
-PostGIS database.  Download data from geofabrique or generate / extract 
-a dataset and import into the PostGIS database.
+The repo configures a mapnic server but it does not import data into the 
+PostGIS database.  Download a dataset from geofabrique or generate / extract 
+a dataset from something like OSM and import into the PostGIS database.
 
 To import data, use the su command or su to the osmdata user and run the following command:
 
@@ -19,5 +19,7 @@ Recently completed:
 
 Still to do:
 
-- Review packages and remove unnecessary packages.  Some of these are leftovers from migrating from mapnic on 
-an Ubuntu 12.04 to the 14.04 OS and following inaccurate openstreetmap wiki guidelines.
+- Review packages and remove unnecessary packages.  Some of these are leftover from migrating mapnic on 
+an Ubuntu 12.04 instance to the 14.04 OS and following inaccurate openstreetmap wiki guidelines on creating 
+a mapnik server.
+- Build an automated cache builder for the imported dataset.
