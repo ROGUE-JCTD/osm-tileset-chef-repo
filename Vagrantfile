@@ -21,7 +21,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision :shell, :path => "scripts/install_rvm.sh",  :args => "stable"
 
   config.vm.provision :shell, :path => "scripts/stage_osm_repo.sh", :args => "vagrant release-1.4"
-  config.vm.provision :shell, :inline => "gem install chef --version 11.10.4 --no-rdoc --no-ri --conservative"
+#  config.vm.provision :shell, :inline => "gem install chef --version 11.10.4 --no-rdoc --no-ri --conservative"
+  config.vm.provision :shell, :inline => "gem install chef --version 11.18.0 --no-rdoc --no-ri --conservative"
 
 # The url from where the 'config.vm.box' box will be fetched if it doesn't already exist on the user's system. Comment out 
 # the version you want.
