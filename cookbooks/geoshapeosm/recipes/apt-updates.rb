@@ -20,11 +20,11 @@ end
   package p
 end
 
-#["postgresql", "postgresql-contrib", "postgis", "postgresql-9.3-postgis-2.1", "gdal-bin", "proj-bin", "libpq-dev", "php5", "libsqlite3-dev"].each do |p|
+#["postgresql", "postgis", "postgresql-contrib", "gdal-bin", "proj-bin", "libpq-dev", "php5", "libsqlite3-dev"].each do |p|
 #  package p
 #end
 
-["postgresql-9.3-postgis-2.1", "postgresql-contrib", "gdal-bin", "proj-bin", "libpq-dev", "php5", "libsqlite3-dev"].each do |p|
+["postgresql-9.3", "postgresql-contrib-9.3", "postgresql-9.3-postgis-2.1", "gdal-bin", "proj-bin", "libpq-dev", "php5", "libsqlite3-dev"].each do |p|
   package p
 end
 
