@@ -22,7 +22,3 @@
 group 'osmdata' do
   action :create
 end
-
-group 'osmrender' do
-  action :create
-end

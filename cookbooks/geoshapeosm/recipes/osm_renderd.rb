@@ -34,8 +34,8 @@ end
 execute "sed -i 's/plugins_dir=\\/usr\\/lib\\/mapnik\\/input/plugins_dir=\\/usr\\/lib\\/mapnik\\/2.2\\/input\\//' /usr/local/etc/renderd.conf" do
 end
 
-execute "sed -i 's/plugins_dir=\\/usr\\/lib\\/mapnik\\/input/plugins_dir=\\/usr\\/lib\\/mapnik\\/2.2\\/input\\//' /usr/local/etc/renderd.conf" do
-end
+#execute "sed -i 's/plugins_dir=\\/usr\\/lib\\/mapnik\\/input/plugins_dir=\\/usr\\/lib\\/mapnik\\/2.2\\/input\\//' /usr/local/etc/renderd.conf" do
+#end
 
 execute 'cp mod_tile/debian/renderd.init /etc/init.d/renderd' do
    cwd '/home/osmdata/src'

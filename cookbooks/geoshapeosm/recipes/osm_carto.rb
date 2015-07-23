@@ -3,7 +3,6 @@ bash 'configure_openstreetmap_carto' do
    cwd '/home/osmdata'
    code <<-EOH
 	sudo su - osmdata
-#	cd /home/osmdata
 	mkdir /home/osmdata/src
 	cd /home/osmdata/src
 	git clone https://github.com/gravitystorm/openstreetmap-carto.git
@@ -13,6 +12,12 @@ bash 'configure_openstreetmap_carto' do
 	git clone https://github.com/mapbox/carto.git
 	cd /home/osmdata/src/carto
 	git pull && git checkout
+   EOH
+end
+
+bash 'time_notice' do
+   code <<-EOH
+        echo "Downloading shapefiles.  This will take some time."
    EOH
 end
 
