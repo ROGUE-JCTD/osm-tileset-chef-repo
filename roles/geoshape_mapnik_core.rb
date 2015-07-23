@@ -17,7 +17,6 @@ run_list(
  "recipe[geoshapeosm::apt-updates]",
  "recipe[geoshapeosm::groups]",
  "recipe[geoshapeosm::users]",
- "recipe[geoshapeosm::db_packages]",
  "recipe[geoshapeosm::db_create]",
  "recipe[geoshapeosm::postgis]",
  "recipe[geoshapeosm::osm_carto]",
