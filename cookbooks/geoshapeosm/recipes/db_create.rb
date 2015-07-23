@@ -1,6 +1,4 @@
 #   not_if "psql -c \"SELECT rolname FROM pg_roles where rolname = '#{node['db_admin_name']}'\" | grep -c #{node['db_admin_name']}";
-package "postgresql"
-package "postgresql-contrib"
 
 execute "create role" do
    user "postgres"

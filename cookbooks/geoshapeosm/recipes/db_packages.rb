@@ -1,8 +1,8 @@
 # install Postgresql packages.  These include packages necessary for postgis and mapnik.
 
-execute "apt-get update" do
-  user "root"
-end
+#execute "apt-get update" do
+#  user "root"
+#end
 
 #["libc6", "libgdal-dev", "libgeos-c1", "libproj0", "libxml2"].each do |p|
 #  package p
