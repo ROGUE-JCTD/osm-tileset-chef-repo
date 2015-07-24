@@ -15,12 +15,6 @@ bash 'configure_openstreetmap_carto' do
    EOH
 end
 
-bash 'time_notice' do
-   code <<-EOH
-        echo "Downloading shapefiles.  This will take some time."
-   EOH
-end
-
 execute './get-shapefiles.sh' do
    cwd '/home/osmdata/src/openstreetmap-carto'
    user 'osmdata'
