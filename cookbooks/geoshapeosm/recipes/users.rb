@@ -29,25 +29,3 @@ user 'osmdata' do
   action :create
   not_if "getent passwd osmdata"
 end
-#user 'osmrender' do
-#  supports :manage_home => true
-#  comment 'osm render'
-#  uid '1202'
-#  gid 'osmrender'
-#  shell '/bin/false'
-#  home '/home/osmrender'
-#  system false
-#  action :create
-#  not_if "getent passwd osmrender"
-#end
-#user 'tilecache' do
-#  supports :manage_home => true
-#  comment 'tile cache'
-#  uid '1203'
-#  gid 'sudo'
-#  shell '/bin/false'
-#  home '/home/tilecache'
-#  system false
-#  action :create
-#  not_if "getent passwd tilecache"
-#end
