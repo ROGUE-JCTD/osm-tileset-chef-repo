@@ -2,24 +2,53 @@ Overview
 
 This repository creates a generic mapnik tile server with apache2 and PostGIS.
 
-The repo configures a mapnic server but it does not import data into the 
-PostGIS database.  Download a dataset from geofabrique or generate / extract 
-a dataset from something like OSM and import into the PostGIS database.
+The repo configures a mapnik server but it does not import data into the PostGIS database.
 
-To import data, use the su command or su to the osmdata user and run the following command:
+The easiest way to get a dataset is to download a dataset from geofabrique at download.geofabrik.de.  
 
-osm2pgsql --create --slim -C 1500 --number-processes 1 -S /home/osmdata/src/openstreetmap-carto/openstreetmap-carto.style --hstore --multi-geometry <Path to Dataset>
+Using chrome search download.geofabrik.de and find a dataset you want, right click over the [osm.pbf] 
+or [osm.bz2] and select copy link address.  This will put the link path into the clipboard.
+
+Next, access the mapnik VM as the vagrant user.  In the Vm commad line enter:
+
+vagrant ssh
+
+Once you are the vagrant user, become the osmdata user.  At the commad line enter:
+
+sudo su - osmdata
+
+As the osmdata user cd to the /tmp directory.
+
+cd /tmp
+
+Download the geofabrique file to this location.  You would enter command wget and then right click the mouse \
+and select paste to enter the datafile selected earlier.  The command would look like the following:
+
+wget http://download.geofabrik.de/central-america/belize-latest.osm.pbf
+
+Select enter and the file will download.
+
+To import the file into the database run the following command as the osmdata user.
+
+/opt/osm-tileset-chef-repo/scripts/install_datafile.sh
+
+This script is intended to be a quick / flexible way to import the osm data, in either pbf or bz2 formats, into the 
+database but it will attempt to import all pbf and bz2 datafiles found in the /tmp directoty.  Having more than one 
+pbf or bz2 file could cause the import to fail under certain circumstances.  Additional warning. Any data in the 
+database will be deleted as part of this import.
 
 Recently completed:
 
- - Removed unneseccary mapnik user accounts.  These were created following an openstreetmap wiki guideline but are unnecessary.
- - Replaced package apache2-threaded-dec with apache2-dev
+ - Removed unneseccary mapnik user accounts.  These were created following an openstreetmap wiki guideline 
+   but are unnecessary.
+ - Replaced package apache2-threaded-dec with apache2-dev.
  - Replaced ruby-2.0.0-p353 with ruby-2.0.0-p645.  This got rid of the security warnings.
  - Cleaned up test code.
+ - Created osm data file import script.
+ - replaced genericpostgresql database packages with more secure versions.
+ - Updated the README file to be easier for users to do osm data file imports.
 
 Still to do:
 
-- Review packages and remove unnecessary packages.  Some of these are leftover from migrating mapnic on 
-an Ubuntu 12.04 instance to the 14.04 OS and following inaccurate openstreetmap wiki guidelines on creating 
-a mapnik server.
-- Build an automated cache builder for the imported dataset.
+- Review Berksfile and Gemfile.  Build lock files.
+- Review code for any leftover test code.
