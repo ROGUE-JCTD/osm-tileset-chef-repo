@@ -74,8 +74,8 @@ end
 execute 'chmod u=rw,go=r /etc/apache2/sites-available/000-default.conf' do
 end
 
-execute 'service renderd restart' do
+execute 'service apache2 restart' do
 end
 
-execute 'service apache2 restart' do
+execute 'service renderd restart' do
 end
