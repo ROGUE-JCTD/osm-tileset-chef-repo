@@ -67,10 +67,15 @@ normal, and an OK, meaning the service has started.
 You can also monitor renderd as it handles tile requests.  As the osmdata user enter the following at the command
 prompt:
 
+service renderd stop
 renderd -f -c /usr/local/etc/renderd.conf
 
 Then enter http://192.168.99.90/osm_tiles/0/0/0.png in a web browser.  If the request is being sent to renderd 
-you will see teh output in the monitor window.
+you will see the output in the monitor window.
+
+After testing, restart renderd.
+
+service renderd stop
 
 Recently completed:
 
@@ -81,7 +86,8 @@ Recently completed:
  - Cleaned up test code.
  - Created osm data file import script.
  - replaced genericpostgresql database packages with more secure versions.
- - Updated the README file to be easier for users to do osm data file imports.
+ - Updated the README file to be easier for users to do osm data file imports 
+ - Updated the README file with ways to test and troubleshoot the installation.
 
 Still to do:
 
