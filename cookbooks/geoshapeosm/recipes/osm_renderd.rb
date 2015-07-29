@@ -77,5 +77,8 @@ end
 execute 'service apache2 restart' do
 end
 
+execute 'ln -s /etc/init.d/renderd /etc/rc2.d/S20renderd' do
+end
+
 execute 'service renderd restart' do
 end
