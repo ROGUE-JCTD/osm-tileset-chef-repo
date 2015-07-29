@@ -32,10 +32,45 @@ To import the file into the database run the following command as the osmdata us
 
 /opt/osm-tileset-chef-repo/scripts/install_datafile.sh
 
-This script is intended to be a quick / flexible way to import the osm data, in either pbf or bz2 formats, into the 
-database but it will attempt to import all pbf and bz2 datafiles found in the /tmp directoty.  Having more than one 
-pbf or bz2 file could cause the import to fail under certain circumstances.  Additional warning. Any data in the 
-database will be deleted as part of this import.
+The install_datafile.sh script is intended to be a quick / flexible way to import the osm data, in either pbf or 
+bz2 formats, into the database but it will attempt to import all pbf and bz2 datafiles found in the /tmp directory.  
+That said, having more than one pbf or bz2 file could cause the import to fail under certain circumstances.  
+Additional warning. Any data in the gis database is deleted as part of the osm import.
+
+Testing the installation
+
+After the dataset is imported into the database the mapnik server should be ready for use.  To test exter the following
+in a web browser ( 192.168.99.90 is the default IP the VM is created with.  If that is different for your instance
+then change that to the correct IP):
+
+http://192.168.99.90/osm_tiles/0/0/0.png
+
+A tile of the world should appear in the upper left hand corner of the browser window.
+
+Trouble shooting
+
+Apache2
+
+Assuming the VM completed successfully and the data was loaded into the PostGIS database using the script above
+then test the Apache2 and renderd service.
+
+To test if apache2 is running enter http://192.168.99.90 in a web browser.  The Apache splash page should return.  
+If it does not then restart the apache service.  As root enter service apache2 restart' at a command prompt.  
+The apache2 service should restart and come back with an OK, meaning the service has started.
+
+Renderd
+
+Renderd is the map tile renderind daemon.  to check the renderd daemon restart the service.  As root enter 
+'service renderd restart' at a command prompt.  Renderd will return with four errors, that is a bug and is 
+normal, and an OK, meaning the service has started.
+
+You can also monitor renderd as it handles tile requests.  As the osmdata user enter the following at the command
+prompt:
+
+renderd -f -c /usr/local/etc/renderd.conf
+
+Then enter http://192.168.99.90/osm_tiles/0/0/0.png in a web browser.  If the request is being sent to renderd 
+you will see teh output in the monitor window.
 
 Recently completed:
 
