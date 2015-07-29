@@ -16,7 +16,7 @@ bash 'configure_openstreetmap_carto' do
 end
 
 execute './get-shapefiles.sh' do
-   cwd /home/osmdata/src/openstreetmap-carto
+   cwd '/home/osmdata/src/openstreetmap-carto'
    user 'osmdata'
 end
 
