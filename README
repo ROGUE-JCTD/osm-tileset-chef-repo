@@ -37,6 +37,13 @@ bz2 formats, into the database but it will attempt to import all pbf and bz2 dat
 That said, having more than one pbf or bz2 file could cause the import to fail under certain circumstances.  
 Additional warning. Any data in the gis database is deleted as part of the osm import.
 
+After the data is in the database, restart the renderd service:
+
+service renderd restart
+
+It is important to remember renderd will not render tiles until data is in the database and the service must be 
+restarted after the data has been loaded. 
+
 Testing the installation
 
 After the dataset is imported into the database the mapnik server should be ready for use.  To test exter the following
@@ -67,15 +74,15 @@ normal, and an OK, meaning the service has started.
 You can also monitor renderd as it handles tile requests.  As the osmdata user enter the following at the command
 prompt:
 
-service renderd stop
-renderd -f -c /usr/local/etc/renderd.conf
+     service renderd stop
+     renderd -f -c /usr/local/etc/renderd.conf
 
 Then enter http://192.168.99.90/osm_tiles/0/0/0.png in a web browser.  If the request is being sent to renderd 
 you will see the output in the monitor window.
 
 After testing, restart renderd.
 
-service renderd stop
+     service renderd start
 
 Recently completed:
 
