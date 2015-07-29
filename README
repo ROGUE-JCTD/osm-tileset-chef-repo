@@ -46,7 +46,7 @@ restarted after the data has been loaded.
 
 Testing the installation
 
-After the dataset is imported into the database the mapnik server should be ready for use.  To test exter the following
+After the dataset is imported into the database the mapnik server should be ready for use.  To test enter the following
 in a web browser ( 192.168.99.90 is the default IP the VM is created with.  If that is different for your instance
 then change that to the correct IP):
 
