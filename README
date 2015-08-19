@@ -32,10 +32,11 @@ To import the file into the database run the following command as the osmdata us
 
 /opt/osm-tileset-chef-repo/scripts/install_datafile.sh
 
-The install_datafile.sh script is intended to be a quick / flexible way to import the osm data, in either pbf or 
-bz2 formats, into the database but it will attempt to import all pbf and bz2 datafiles found in the /tmp directory.  
-That said, having more than one pbf or bz2 file could cause the import to fail under certain circumstances.  
-Additional warning. Any data in the gis database is deleted as part of the osm import.
+The install_datafile.sh script is intended to be a quick / flexible way to import only one osm pbf or bz2 data file. 
+The script will import all osm pbf and bz2 datafiles found in the /tmp directory but the osm2pgsql importer 
+called by this script deletes any existing osm data in the database as part of the import.  If there are  more than one 
+datafiles in the /tmp directory, the script will install all of them one at a time but only the last datafile will be 
+available.
 
 After the data is in the database, restart the renderd service:
 
