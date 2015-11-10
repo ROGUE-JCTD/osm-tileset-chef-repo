@@ -85,6 +85,15 @@ After testing, restart renderd.
 
      service renderd start
 
+
+Checking Database
+
+To see if you data is in the db, after you ssh into the vm, run:
+sudo su - osmdata
+psql -d gis
+\d
+select count(*) from planet_osm_point;
+
 Recently completed:
 
  - Removed unneseccary mapnik user accounts.  These were created following an openstreetmap wiki guideline 
